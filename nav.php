@@ -1,8 +1,8 @@
 <?php
 // Database configuration
-$servername = "localhost:3307"; // Replace with your server name
-$username = "root"; // Replace with your database username
-$password = ""; // Replace with your database password
+$servername = "localhost:3307";
+$username = "root";
+$password = "";
 $dbname = "gallery_cafe";
 
 try {
@@ -10,10 +10,13 @@ try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     // Set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
+}
+
+catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
     die();
 }
+
 ?>
 
 
@@ -33,9 +36,8 @@ try {
     <link href="https://unpkg.com/flowbite@1.6.5/dist/flowbite.min.css" rel="stylesheet">
 
     <style>
-        /* Custom CSS to underline the active link */
         .active-link {
-            border-bottom: 2px solid yellow; /* Adjust the color and thickness as needed */
+            border-bottom: 2px solid yellow;
         }
     </style>
 </head>
@@ -73,7 +75,7 @@ try {
                         <a href="#contact" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Online Orders</a>
                     </li>
                     <li>
-                        <a href="#contact" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Reserve</a>
+                        <a href="reservation.php" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Reserve</a>
                     </li>
                 </ul>
             </div>

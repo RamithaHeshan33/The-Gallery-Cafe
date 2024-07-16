@@ -1,6 +1,5 @@
 <?php
     session_start();
-
     require 'nav.php';
 ?>
 
@@ -10,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>The Gallery Cafe</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
@@ -18,13 +17,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <!-- Flowbite CSS -->
     <link href="https://unpkg.com/flowbite@1.6.5/dist/flowbite.min.css" rel="stylesheet">
-
 </head>
 <body class="body">
 
     <div class="home">
         <button class="login-button">Login</button>
-        <img class="home-pic" src="img/Untitled-1.jpg" alt="">
+        <img class="home-pic" src="img/Untitled-1.jpg" alt="Gallery Cafe">
         <div class="para">
             <h1>The Gallery Cafe</h1>
             <p class="items-justify">
@@ -44,5 +42,4 @@
     </div>
 
 </body>
-
 </html>
