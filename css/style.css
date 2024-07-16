@@ -58,6 +58,7 @@ section {
   border: none;
   color: #333333;
   font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
   border-radius: 5px;
   transition: 0.3s;
@@ -68,6 +69,176 @@ section {
 }
 
 /* END Home Page */
+
+/* Menu page  */
+.menu {
+  display: flex;
+  background: #f8c705;
+  text-align: justify;
+  justify-content: center;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.menu .para {
+  padding-left: 20px;
+}
+
+.menu h1 {
+  font-size: 5rem;
+}
+
+.orderBtn {
+  width: 90px;
+  color: white; 
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; 
+  padding: 5px 10px; 
+  border: 1px solid #e4282e; 
+  border-radius: 88px; 
+  background-color: #ee0c0c; 
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.orderBtn:hover {
+  background-color: white;
+  color: #182431;
+  cursor: pointer;
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  
+  
+}
+.food-list-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+ 
+}
+
+.food-title {
+  font-size: 3rem;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-list .card {
+  margin: 20px;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(37, 39, 59, 0.3);
+  width: 300px;
+}
+
+.card .card-header {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 500;
+
+  background-color: #007BFF;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.card .card_footer {
+  
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.btn1 {
+  width: 100px;
+  color: #182431; 
+  text-decoration: none; /* Remove underline */
+  font-weight: bold;
+  padding: 5px 15px;
+  border: 1px solid #007BFF; 
+  border-radius: 88px; 
+  background-color: #f0f8ff; 
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+}
+
+.btn1:hover {
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+}
+
+.items {
+  /* background-color: #182431; */
+}
+
+@media screen and (min-width: 1200px) {
+  .assignment-schedule-container{
+   width: calc(100% - 300px);  /* to remove the extra space allocated for the side bar */
+   margin: 100px auto auto 300px; 
+   overflow: hidden;
+   max-width: none;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+
+  .assignment-schedule-container{
+      width: 100%;
+     
+      justify-content: center;
+      margin-top: 5rem
+      ;
+      
+      
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @media (max-width: 1299px) {
@@ -90,4 +261,51 @@ section {
   .social {
     text-align: center;
   }
+
+  .menu {
+    display: inline-block;
+    padding: 30px;
+  }
+
+  .menu h1 {
+    margin-top: 3rem;
+    font-size: 3rem;
+  }
+
+  .btn {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* Add these styles to your CSS file */
+
+nav ul li a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 0;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  margin-top: 5px;
+  right: 0;
+  background: #f8c705; /* Yellow line color */
+  transition: width 0.4s ease, right 0.4s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+  right: 0;
+}
+
+nav ul li a.active::after {
+  width: 100%;
+  right: 0;
 }
