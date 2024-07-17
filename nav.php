@@ -39,6 +39,14 @@ catch(PDOException $e) {
         .active-link {
             border-bottom: 2px solid yellow;
         }
+
+        .profile {
+            width: 30px;
+            height: 30px;
+            border-radius: 30px;
+            border: 3px solid yellow;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body id="home">
@@ -66,7 +74,7 @@ catch(PDOException $e) {
                         <a href="#promotions" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Promotions & Offers</a>
                     </li>
                     <li>
-                        <a href="#blogs" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About Us</a>
+                        <a href="about.php" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About Us</a>
                     </li>
                     <li>
                         <a href="#contact" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
@@ -77,8 +85,12 @@ catch(PDOException $e) {
                     <li>
                         <a href="reservation.php" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Reserve</a>
                     </li>
+                    <li>
+                        
+                    </li>
                 </ul>
             </div>
+            <img src="img/profile.png" alt="" class="profile">
         </div>
     </nav>
 

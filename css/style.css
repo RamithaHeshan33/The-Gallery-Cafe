@@ -205,6 +205,45 @@ section {
   /* background-color: #182431; */
 }
 
+
+
+
+
+
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.alert-success {
+  background-color: #4CAF50;
+}
+
+.alert-danger {
+  background-color: #f44336;
+}
+
+.alert i {
+  margin-right: 10px;
+
+}
+
+.container {
+  position: relative;
+}
+
+.message-container {
+  position: absolute;
+  width: 100%;
+  top: -75px;
+  margin-left: 10px;
+  left: 0;
+  z-index: 1000;
+}
+
 @media screen and (min-width: 1200px) {
   .assignment-schedule-container{
    width: calc(100% - 300px);  /* to remove the extra space allocated for the side bar */

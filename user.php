@@ -21,7 +21,8 @@
 <body class="body">
 
     <div class="home">
-        <button class="login-button">Login</button>
+        <button class="login-button" onclick="window.location.href='login.php'">Login</button>
+
         <img class="home-pic" src="img/Untitled-1.jpg" alt="Gallery Cafe">
         <div class="para">
             <h1>The Gallery Cafe</h1>
