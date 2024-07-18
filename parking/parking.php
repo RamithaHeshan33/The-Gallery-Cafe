@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '../nav1.php';
+include_once 'nav1.php';
 $message = isset($_GET['message']) ? $_GET['message'] : '';
 ?>
 
@@ -14,12 +14,13 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
     <link rel="stylesheet" href="../css/parking.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
+    
 </head>
 <body>
     <div class="banner">
         <img class="banner-pic" src="../img/parking.jpg" alt="Gallery Cafe">
         <div class="para">
-        <?php if ($message == 'reserved'): ?>
+            <?php if ($message == 'reserved'): ?>
                 <div class="alert alert-success" id="alertMessage"><i class="fas fa-check-circle"></i>Your reservation is successful.</div>
             <?php elseif ($message == 'err'): ?>
                 <div class="alert alert-danger" id="alertMessage"><i class="fas fa-times-circle"></i>Something went wrong.</div>

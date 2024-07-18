@@ -19,6 +19,30 @@ section {
   display: none;
 }
 
+table {
+  background: #ffffff;
+  width: 100%;
+  border-collapse: collapse;
+  border: #cacace;
+ 
+}
+.table-container-1{
+  width: 400px;
+ 
+}
+.table-container-2 {
+  width: 100%;
+  margin: 32px;
+
+}
+
+th, td {
+  border: 0px solid #dddddd;
+  text-align: left;
+  padding: 15px;
+  
+}
+
 
 /* Home page */
 
