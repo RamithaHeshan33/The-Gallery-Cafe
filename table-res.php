@@ -3,6 +3,7 @@
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Get form data
+        $username = $_POST['username'];
         $name = $_POST['name'];
         $email = $_POST['email'];
         $phone = $_POST['phone'];
@@ -15,8 +16,8 @@
         $res_number = 'TABLE-RES-' . uniqid();
 
         // Prepare and bind
-        $stmt = $conn->prepare("INSERT INTO table_reservation (name, email, phone, `book-date`, `book-time`, adults, kids, res_number) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssssis", $name, $email, $phone, $booking_date, $booking_time, $adults, $kids, $res_number);
+        $stmt = $conn->prepare("INSERT INTO table_reservation (username, name, email, phone, `book-date`, `book-time`, adults, kids, res_number) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssssssis",$username, $name, $email, $phone, $booking_date, $booking_time, $adults, $kids, $res_number);
 
         // Execute the statement
         if ($stmt->execute()) {

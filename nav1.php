@@ -15,6 +15,7 @@ if(isset($_SESSION['username'])) {
         $row = mysqli_fetch_assoc($result);
         $name = $row['name'];
         $email = $row['email'];
+        $phone = $row['phone'];
 
         
     } else {

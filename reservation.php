@@ -40,7 +40,7 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
                     <form method="POST" action="parking-res.php">
                         <img src="img/garage.jpg" alt="Garage Image">
                         <h1>Parking Reservation</h1>
-                        <a href="parking.php"><input type="button" value="Reserve Now" id="reserveParkingBtn" class="btn2"></a>
+                        <a href="parking/parking.php"><input type="button" value="Reserve Now" id="reserveParkingBtn" class="btn2"></a>
                     </form>
                 </div>
             </div>
@@ -52,6 +52,7 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
         <div class="modal-content">
             <span class="close">&times;</span>
             <form method="POST" action="table-res.php">
+                <input type="text" value="<?php echo isset($username) ? htmlspecialchars($username) : ''; ?>" id="id" name="username" placeholder="Enter Your ID" readonly>
                 <input type="text" name="name" placeholder="Name" required>
                 <input type="email" name="email" placeholder="Email" required>
                 <input type="tel" name="phone" placeholder="Phone Number" required>
