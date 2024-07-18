@@ -1,0 +1,136 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8c705;
+    text-align: justify;
+    padding: 20px;
+    height: 100vh;
+}
+
+.banner-pic {
+    max-width: 50%;
+    height: auto;
+    margin-right: 20px;
+}
+
+.para {
+    max-width: 600px;
+}
+
+.para h1 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.para p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.social {
+    display: flex;
+    gap: 15px;
+}
+
+.social a {
+    font-size: 2rem;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.social a:hover {
+    color: #000;
+}
+
+
+.slot-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+}
+
+.slot {
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(37, 39, 59, 0.3);
+    width: 250px;
+    display: flex;
+    justify-content: center;  /* Centers content horizontally */
+    align-items: center;      /* Centers content vertically */
+    flex-direction: column;   /* Ensures content is stacked vertically */
+}
+
+
+.slot p {
+    text-align: center;
+}
+
+.icon {
+    margin-top: 10px;
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.btn2 {
+    width: 100px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: #182431; 
+    text-decoration: none;
+    padding: 5px 15px;
+    border: 1px solid #007BFF; 
+    border-radius: 88px; 
+    background-color: #f0f8ff; 
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn2:hover {
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .banner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .banner-pic {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .para h1 {
+        font-size: 2rem;
+    }
+
+    .para p {
+        font-size: 1rem;
+    }
+
+    .social a {
+        font-size: 1.5rem;
+    }
+}

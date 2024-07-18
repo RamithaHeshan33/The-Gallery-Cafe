@@ -40,7 +40,7 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
                     <form method="POST" action="parking-res.php">
                         <img src="img/garage.jpg" alt="Garage Image">
                         <h1>Parking Reservation</h1>
-                        <input type="submit" value="Reserve Now">
+                        <a href="parking.php"><input type="button" value="Reserve Now" id="reserveParkingBtn" class="btn2"></a>
                     </form>
                 </div>
             </div>
@@ -63,6 +63,8 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
             </form>
         </div>
     </div>
+
+    
 
     <script>
         // Get the modal
