@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($conn->query($sql) === TRUE) {
             $_SESSION['username'] = $username; // Start session for the new user
-            header("Location: index.php");
+            header("Location: login.php");
             exit();
         } else {
             $error = "Error: " . $sql . "<br>" . $conn->error;

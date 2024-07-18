@@ -19,6 +19,7 @@ section {
   display: none;
 }
 
+
 /* Home page */
 
 .home {
@@ -246,7 +247,7 @@ section {
 
 @media screen and (min-width: 1200px) {
   .assignment-schedule-container{
-   width: calc(100% - 300px);  /* to remove the extra space allocated for the side bar */
+   width: calc(100% - 300px);
    margin: 100px auto auto 300px; 
    overflow: hidden;
    max-width: none;
@@ -257,11 +258,12 @@ section {
 
   .assignment-schedule-container{
       width: 100%;
-     
       justify-content: center;
-      margin-top: 5rem
-      ;
-      
+      margin-top: 5rem;
+
+  .login-button {
+
+  }
       
   }
 }

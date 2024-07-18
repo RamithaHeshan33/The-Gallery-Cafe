@@ -1,12 +1,18 @@
 <?php
     session_start();
-    require 'nav.php';
-
+    require 'connection.php'; // Include your database connection file
+    require 'nav1.php';
     // SQL query to fetch food items
     $sql = "SELECT name, category, price, img, cat FROM food";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
-    $foods = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $result = $stmt->get_result(); // Get the result set from the prepared statement
+
+    $foods = []; // Initialize an empty array to store fetched data
+
+    while ($food = $result->fetch_assoc()) {
+        $foods[] = $food; // Append each row to $foods array
+    }
 
     // Function to convert BLOB to base64
     function base64_encode_image($img) {
@@ -49,7 +55,7 @@
         <div class="food-list-container">
             <h1 class="food-title">Starters</h1>
             <div class="card-list">
-                <?php if ($starters): ?>
+                <?php if (!empty($starters)): ?>
                     <?php foreach ($starters as $food): ?>
                         <div class="card">
                             <div class="card-header">
@@ -63,7 +69,7 @@
                         </div>
                     <?php endforeach; ?>
                 <?php else: ?>
-                    <p>No food items found.</p>
+                    <p>No starters found.</p>
                 <?php endif; ?>
             </div>
         </div>
@@ -71,7 +77,7 @@
         <div class="food-list-container">
             <h1 class="food-title">Main Courses</h1>
             <div class="card-list">
-                <?php if ($main_courses): ?>
+                <?php if (!empty($main_courses)): ?>
                     <?php foreach ($main_courses as $food): ?>
                         <div class="card">
                             <div class="card-header">
@@ -85,7 +91,7 @@
                         </div>
                     <?php endforeach; ?>
                 <?php else: ?>
-                    <p>No food items found.</p>
+                    <p>No main courses found.</p>
                 <?php endif; ?>
             </div>
         </div>

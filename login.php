@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $result->fetch_assoc();
         if (password_verify($password, $row['password'])) {
             $_SESSION['username'] = $username; // Start session for the user
-            header("Location: index.php");
+            header("Location: user1.php");
             exit();
         } else {
             $error = "Invalid username or password";

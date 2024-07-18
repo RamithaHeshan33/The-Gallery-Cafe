@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require 'nav.php';
+require 'nav1.php';
 $message = isset($_GET['message']) ? $_GET['message'] : '';
 ?>
 
