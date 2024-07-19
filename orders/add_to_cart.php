@@ -20,16 +20,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $update_sql = "UPDATE cart SET quantity = quantity + 1 WHERE username = ? AND name = ?";
         $update_stmt = $conn->prepare($update_sql);
         $update_stmt->bind_param('ss', $username, $food_name);
-        $update_stmt->execute();
+        if ($update_stmt->execute()) {
+            header("Location: order.php?message=quantity");
+        } else {
+            header("Location: order.php?message=err");
+        }
+        $update_stmt->close();
     } else {
         // If item is not in the cart, insert new row
         $insert_sql = "INSERT INTO cart (username, name, price, quantity) VALUES (?, ?, ?, 1)";
         $insert_stmt = $conn->prepare($insert_sql);
         $insert_stmt->bind_param('ssd', $username, $food_name, $food_price);
-        $insert_stmt->execute();
+        if ($insert_stmt->execute()) {
+            header("Location: order.php?message=submitted");
+        } else {
+            header("Location: order.php?message=err");
+        }
+        $insert_stmt->close();
     }
 
-    // Redirect back to the menu page or wherever you want
-    header("Location: order.php?message=submitted");
+    $check_stmt->close();
+    $conn->close();
     exit();
-} 
+}
+?>

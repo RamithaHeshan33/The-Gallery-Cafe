@@ -1,38 +1,37 @@
 <?php
-    session_start();
+session_start();
 
-    require '../parking/nav1.php';
-    require '../connection.php';
+require '../parking/nav1.php';
+require '../connection.php';
 
-    // SQL query to fetch food items
-    $sql = "SELECT food_id, name, category, price, img, cat FROM food";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute();
-    $result = $stmt->get_result(); // Get the result set from the prepared statement
+// SQL query to fetch food items
+$sql = "SELECT food_id, name, category, price, img, cat FROM food";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$result = $stmt->get_result(); // Get the result set from the prepared statement
 
-    $foods = []; // Initialize an empty array to store fetched data
+$foods = []; // Initialize an empty array to store fetched data
 
-    while ($food = $result->fetch_assoc()) {
-        $foods[] = $food; // Append each row to $foods array
-    }
+while ($food = $result->fetch_assoc()) {
+    $foods[] = $food; // Append each row to $foods array
+}
 
-    // Function to convert BLOB to base64
-    function base64_encode_image($img) {
-        return base64_encode($img);
-    }
+// Function to convert BLOB to base64
+function base64_encode_image($img) {
+    return base64_encode($img);
+}
 
-    // Function to filter foods by category
-    function filter_food_by_category($foods, $category) {
-        return array_filter($foods, function($food) use ($category) {
-            return $food['cat'] === $category;
-        });
-    }
+// Function to filter foods by category
+function filter_food_by_category($foods, $category) {
+    return array_filter($foods, function($food) use ($category) {
+        return $food['cat'] === $category;
+    });
+}
 
-    $starters = filter_food_by_category($foods, 'Starters');
-    $main_courses = filter_food_by_category($foods, 'Main Courses');
+$starters = filter_food_by_category($foods, 'Starters');
+$main_courses = filter_food_by_category($foods, 'Main Courses');
 
-    $message = isset($_GET['message']) ? $_GET['message'] : '';
-
+$message = isset($_GET['message']) ? $_GET['message'] : '';
 ?>
 
 <!DOCTYPE html>
@@ -49,29 +48,30 @@
 <body class="body">
     <div class="menu">
         <div class="para">
+        <?php if ($message == 'payment'): ?>
+            <div class="alert alert-success" id="alertMessage"><i class="fas fa-check-circle"></i> Your payment is successful.</div>
+        <?php endif; ?>
             <h1 class="items-justify">
                 It's not just <br> Food, it's an <br> Experience
             </h1>
             <div class="btn items-center space-x-4 mt-4">
-                <button class="orderBtn">Order</button>
             </div>
         </div>
         <img class="home-pic" src="../img/file (1).png" alt="">
     </div>
 
     <div class="items">
-            <div class="message-container">
-                <?php if ($message == 'submitted'): ?>
-                    <div class="alert alert-success" id="alertMessage"><i class="fas fa-check-circle"></i>Your reservation is successful.</div>
-                <?php elseif ($message == 'err'): ?>
-                    <div class="alert alert-danger" id="alertMessage"><i class="fas fa-times-circle"></i>Something went wrong.</div>
-                <?php endif; ?>
-            </div>
         <div class="food-list-container">
+            <?php if ($message == 'submitted'): ?>
+                <div class="alert alert-success" id="alertMessage"><i class="fas fa-check-circle"></i> Your item has been added to the cart.</div>
+            <?php elseif ($message == 'err'): ?>
+                <div class="alert alert-danger" id="alertMessage"><i class="fas fa-times-circle"></i> Something went wrong.</div>
+            <?php elseif ($message == 'quantity'): ?>
+                <div class="alert alert-success" id="alertMessage"><i class="fas fa-check-circle"></i> Add another one to the cart.</div>
+            <?php endif; ?>
             <h1 class="food-title">Starters</h1>
             <div class="card-list">
-            <a href="cart.php"><input type="button" value="View Cart" class="btn1"></a>
-
+                <a href="cart.php"><input type="button" value="View Cart" class="btn1"></a>
                 <?php if (!empty($starters)): ?>
                     <?php foreach ($starters as $food): ?>
                         <div class="card">
@@ -89,9 +89,7 @@
                                     <input type="hidden" name="food_price" value="<?= htmlspecialchars($food['price']) ?>">
                                     <input type="submit" value="Add" class="btn2">
                                     <input type="button" value="Rate" class="btn2">
-
                                 </form>
-
                                 </div>
                             </div>
                         </div>
@@ -123,7 +121,6 @@
                                     <input type="submit" value="Add" class="btn2">
                                     <input type="button" value="Rate" class="btn2">
                                 </form>
-
                                 </div>
                             </div>
                         </div>
@@ -134,14 +131,14 @@
             </div>
         </div>
     </div>
-</body>
 
-<script>
-    setTimeout(function() {
+    <script>
+        setTimeout(function() {
             var alertMessage = document.getElementById('alertMessage');
             if (alertMessage) {
                 alertMessage.style.display = 'none';
             }
         }, 10000);
-</script>
+    </script>
+</body>
 </html>
