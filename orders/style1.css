@@ -1,0 +1,79 @@
+.body::-webkit-scrollbar {
+    display: none;
+}
+
+.btn1 {
+    width: 120px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: #182431; 
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 15px;
+    border: 1px solid #007BFF; 
+    border-radius: 88px; 
+    background-color: #f0f8ff; 
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn1:hover {
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+}
+
+.btn2 {
+    width: 100px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: #182431;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 15px;
+    border: 1px solid #007BFF;
+    border-radius: 88px;
+    background-color: #f0f8ff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn2:hover {
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+}
+
+.btn3 {
+    width: 100px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: #182431; 
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 15px;
+    border: 1px solid #ff1100; 
+    border-radius: 88px; 
+    background-color: #fff1f4; 
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn3:hover {
+    background-color: #ff1100;
+    color: white;
+    cursor: pointer;
+}
+
+.btns {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 5px;
+}
+
+ input[type="number"]{
+    width: 60%;
+    padding: 5px;
+    color: #000;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
