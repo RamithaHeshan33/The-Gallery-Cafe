@@ -44,6 +44,15 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="style1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <script type="text/javascript">
+        function preventBack() {
+            window.history.forward();
+        };
+        setTimeout("preventBack()", 0);
+        window.onunload = function() {null;}
+
+    </script>
 </head>
 <body class="body">
     <div class="menu">

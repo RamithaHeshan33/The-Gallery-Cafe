@@ -12,6 +12,15 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/service.css">
+
+    <script type="text/javascript">
+        function preventBack() {
+            window.history.forward();
+        };
+        setTimeout("preventBack()", 0);
+        window.onunload = function() {null;}
+
+    </script>
 </head>
 <body class="body">
     <div class="home">

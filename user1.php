@@ -30,6 +30,14 @@ require 'connection.php';
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <!-- Flowbite CSS -->
     <link href="https://unpkg.com/flowbite@1.6.5/dist/flowbite.min.css" rel="stylesheet">
+    <script type="text/javascript">
+        function preventBack() {
+            window.history.forward();
+        };
+        setTimeout("preventBack()", 0);
+        window.onunload = function() {null;}
+
+    </script>
 </head>
 <body class="body">
 
