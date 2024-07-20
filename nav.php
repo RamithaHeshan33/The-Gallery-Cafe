@@ -1,25 +1,3 @@
-<?php
-// Database configuration
-$servername = "localhost:3307";
-$username = "root";
-$password = "";
-$dbname = "gallery_cafe";
-
-try {
-    // Create connection
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    // Set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}
-
-catch(PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-    die();
-}
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,17 +7,14 @@ catch(PDOException $e) {
     <title>Gallery Cafe</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-
     <!-- Tailwind CSS (required for Flowbite) -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <!-- Flowbite CSS -->
     <link href="https://unpkg.com/flowbite@1.6.5/dist/flowbite.min.css" rel="stylesheet">
-
     <style>
         .active-link {
             border-bottom: 2px solid yellow;
         }
-
     </style>
 </head>
 <body id="home">
@@ -61,7 +36,7 @@ catch(PDOException $e) {
                         <a href="user.php" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" id="homeLink">Home</a>
                     </li>
                     <li>
-                        <a href="menu.php" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" id="menuLink">Menu</a>
+                        <a href="menu1.php" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" id="menuLink">Menu</a>
                     </li>
                     <li>
                         <a href="about.php" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About Us</a>
@@ -73,26 +48,22 @@ catch(PDOException $e) {
             </div>
         </div>
     </nav>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('nav ul li a');
+            const currentPath = window.location.pathname.split('/').pop();
 
-</body>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const navLinks = document.querySelectorAll('nav ul li a');
-        const currentPath = window.location.pathname.split('/').pop();
-
-        navLinks.forEach(link => {
-            if (link.getAttribute('href') === currentPath) {
-                link.classList.add('active-link');
-            }
-            link.addEventListener('click', function() {
-                navLinks.forEach(nav => nav.classList.remove('active-link'));
-                link.classList.add('active-link');
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPath) {
+                    link.classList.add('active-link');
+                }
+                link.addEventListener('click', function() {
+                    navLinks.forEach(nav => nav.classList.remove('active-link'));
+                    link.classList.add('active-link');
+                });
             });
         });
-    });
-</script>
-
-<script src="https://unpkg.com/flowbite@1.6.5/dist/flowbite.js"></script>
-
+    </script>
+    <script src="https://unpkg.com/flowbite@1.6.5/dist/flowbite.js"></script>
+</body>
 </html>
