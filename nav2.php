@@ -1,35 +1,4 @@
-<?php
-// Database configuration
-require '../connection.php';
 
-if(isset($_SESSION['username'])) {
-    // Sanitize the username to prevent SQL injection
-    $username = mysqli_real_escape_string($conn, $_SESSION['username']);
-    
-    // Prepare and execute the SQL query to fetch user's name
-    $sql = "SELECT * FROM users WHERE username = '$username'";
-    $result = mysqli_query($conn, $sql);
-    
-    // Check if query executed successfully and user exists
-    if($result && mysqli_num_rows($result) == 1) {
-        $row = mysqli_fetch_assoc($result);
-        $name = $row['name'];
-        $email = $row['email'];
-        $phone = $row['phone'];
-
-        
-    } else {
-        // Redirect to login page if user does not exist
-        header("Location: login.php");
-        exit();
-    }
-} else {
-    // Redirect to login page if user is not logged in
-    header("Location: login.php");
-    exit();
-
-}
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -115,7 +84,7 @@ if(isset($_SESSION['username'])) {
     <!-- Navbar -->
     <nav class="bg-black border-gray-200 fixed w-full top-0 left-0 z-50">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="../user1.php" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <a href="user.php" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Gallery Cafe</span>
             </a>
             <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
@@ -126,22 +95,22 @@ if(isset($_SESSION['username'])) {
             </button>
             <div class="hidden w-full md:block md:w-auto bg-black" id="navbar-default">
                 <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-black md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-black dark:bg-gray-800 md:dark:bg-black dark:border-gray-700">
-                <li><a href="../user1.php" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Home</a></li>
-                    <li><a href="../menu.php" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Menu</a></li>
+                    <li><a href="user1.php" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Home</a></li>
+                    <li><a href="menu.php" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Menu</a></li>
                     <li><a href="#promotions" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Promotions & Offers</a></li>
-                    <li><a href="../about.php" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About Us</a></li>
-                    <!-- <li><a href="../services.php" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a></li> -->
-                    <li><a href="../orders/order.php" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Online Orders</a></li>
-                    <li><a href="../reservation.php" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Reserve</a></li>
+                    <li><a href="about1.php" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About Us</a></li>
+                    <li><a href="services1.php" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a></li>
+                    <li><a href="orders/order.php" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Online Orders</a></li>
+                    <li><a href="reservation.php" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Reserve</a></li>
                 </ul>
             </div>
             <div class="dropdown">
-                <img src="../img/profile.png" alt="" class="profile">
+                <img src="img/profile.png" alt="" class="profile">
                 <div class="dropdown-content">
-                    <a href="../profile.php">Profile</a>
-                    <a href="../park-reservation.php">Parking Reservations</a>
-                    <a href="../Table-reservation.php">Table Reservations</a>
-                    <a href="../user.php">Logout</a>
+                    <a href="profile.php">Profile</a>
+                    <a href="park-reservation.php">Parking Reservations</a>
+                    <a href="Table-reservation.php">Table Reservations</a>
+                    <a href="user.php">Logout</a>
                 </div>
             </div>
         </div>

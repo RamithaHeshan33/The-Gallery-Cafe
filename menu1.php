@@ -46,7 +46,8 @@ $main_courses = filter_food_by_category($foods, 'Main Courses');
                 It's not just <br> Food, it's an <br> Experience
             </h1>
             <div class="btn items-center space-x-4 mt-4">
-                <button class="orderBtn">Order</button>
+            <a href="orders/order.php"><button class="orderBtn">Order</button></a>
+
             </div>
         </div>
         <img class="home-pic" src="img/file (1).png" alt="">

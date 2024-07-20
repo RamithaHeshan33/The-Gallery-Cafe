@@ -1,5 +1,18 @@
 <?php
     session_start();
+    // Prevent back button after logout
+header("Cache-Control: no-cache, must-revalidate"); // HTTP 1.1
+header("Pragma: no-cache"); // HTTP 1.0
+header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
+
+if(!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit();
+}
+
+// Database connection
+require 'connection.php';
+
     require 'nav1.php';
 ?>
 
