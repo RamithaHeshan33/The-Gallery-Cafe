@@ -1,0 +1,96 @@
+body {
+    background-color: #f8c705;
+}
+
+
+.slot-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 120px;
+    height: 100vh;
+    
+}
+
+.slot {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(37, 39, 59, 0.3);
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+}
+
+.slot p {
+    text-align: center;
+    font-size: 1rem;
+}
+
+.card_value {
+    font-size: 3rem;
+    font-weight: 1000;
+}
+
+.table img {
+    width: 100px;
+    height: 100px;
+}
+
+.table {
+    background-image: url(../../img/admin1.jpg);
+    color: white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.member {
+    background-image: url(../../img/admin2.jpg);
+    color: white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.food {
+    background-image: url(../../img/admin3.jpg);
+    color: white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.user {
+    background-image: url(../../img/admin4.jpg);
+    color: white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.btn2 {
+    width: 120px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: #182431; 
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 15px;
+    border: 1px solid #007BFF; 
+    border-radius: 88px; 
+    background-color: #f0f8ff; 
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn2:hover {
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+}
