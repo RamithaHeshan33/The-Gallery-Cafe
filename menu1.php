@@ -1,7 +1,7 @@
 <?php
     session_start();
     require 'connection.php'; // Include your database connection file
-    require 'nav1.php';
+    require 'nav.php';
     
     // SQL query to fetch food items
     $sql = "SELECT food_id, name, category, price, img, category1 FROM food";
@@ -49,7 +49,7 @@
                 It's not just <br> Food, it's an <br> Experience
             </h1>
             <div class="btn items-center space-x-4 mt-4">
-                <a href="orders/order.php"><button class="orderBtn">Order</button></a>
+                <!-- <a href="orders/order.php"><button class="orderBtn">Order</button></a> -->
             </div>
         </div>
         <img class="home-pic" src="img/file (1).png" alt="">

@@ -40,6 +40,7 @@ $result = $stmt->get_result();
                         <th>Number of Adults</th>
                         <th>Number of Kids</th>
                         <th>Phone Number</th>
+                        <th>Status</th>
                     </tr>
                     <?php
                     if ($result->num_rows > 0) {
@@ -52,7 +53,8 @@ $result = $stmt->get_result();
                             echo "<td data-cell='Booked Time'>" . htmlspecialchars($row['book-time'], ENT_QUOTES, 'UTF-8') . "</td>";
                             echo "<td data-cell='Number of Adults'>" . htmlspecialchars($row['adults'], ENT_QUOTES, 'UTF-8') . "</td>";
                             echo "<td data-cell='Number of Kids'>" . htmlspecialchars($row['kids'], ENT_QUOTES, 'UTF-8') . "</td>";
-                            echo "<td data-cell='phone'>" . htmlspecialchars($row['phone'], ENT_QUOTES, 'UTF-8') . "</td>";
+                            echo "<td data-cell='Phone'>" . htmlspecialchars($row['phone'], ENT_QUOTES, 'UTF-8') . "</td>";
+                            echo "<td data-cell='Status'>" . htmlspecialchars($row['status'], ENT_QUOTES, 'UTF-8') . "</td>";
                             echo "</tr>";
 
                         }
