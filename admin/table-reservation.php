@@ -2,19 +2,27 @@
 // Start the session
 session_start();
 
-require 'nav1.php';
+require 'admin-nav.php';
 
 // Include the database connection
-include_once('connection.php');
+include_once('../connection.php');
 
-$username = $_SESSION['username'];
-$sql = "SELECT * FROM table_reservation WHERE username = ?";
+// Update status if form is submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['res_number'])) {
+    $resNumber = $_POST['res_number'];
+    $status = isset($_POST['status']) ? 'done' : '';
+
+    $updateSql = "UPDATE table_reservation SET status = ? WHERE res_number = ?";
+    $updateStmt = $conn->prepare($updateSql);
+    $updateStmt->bind_param('ss', $status, $resNumber);
+    $updateStmt->execute();
+}
+
+$sql = "SELECT * FROM table_reservation";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param('s', $username);
 $stmt->execute();
 $result = $stmt->get_result();
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +31,9 @@ $result = $stmt->get_result();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Reserved Books</title>
-    <link rel="stylesheet" href="css/reservation.css">
+    <link rel="stylesheet" href="../css/reservation.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/menu.css">
 </head>
 <body>
     
@@ -32,7 +42,7 @@ $result = $stmt->get_result();
             <div class="table">
                 <table>
                     <tr>
-                        <th>username</th>
+                        <th>Username</th>
                         <th>Name</th>
                         <th>Reservation Number</th>
                         <th>Booked Date</th>
@@ -40,6 +50,7 @@ $result = $stmt->get_result();
                         <th>Number of Adults</th>
                         <th>Number of Kids</th>
                         <th>Phone Number</th>
+                        <th>Status</th>
                     </tr>
                     <?php
                     if ($result->num_rows > 0) {
@@ -52,20 +63,22 @@ $result = $stmt->get_result();
                             echo "<td data-cell='Booked Time'>" . htmlspecialchars($row['book-time'], ENT_QUOTES, 'UTF-8') . "</td>";
                             echo "<td data-cell='Number of Adults'>" . htmlspecialchars($row['adults'], ENT_QUOTES, 'UTF-8') . "</td>";
                             echo "<td data-cell='Number of Kids'>" . htmlspecialchars($row['kids'], ENT_QUOTES, 'UTF-8') . "</td>";
-                            echo "<td data-cell='phone'>" . htmlspecialchars($row['phone'], ENT_QUOTES, 'UTF-8') . "</td>";
+                            echo "<td data-cell='Phone'>" . htmlspecialchars($row['phone'], ENT_QUOTES, 'UTF-8') . "</td>";
+                            echo "<td data-cell='Status'>";
+                            echo "<form method='post' action=''>";
+                            echo "<input type='hidden' name='res_number' value='" . htmlspecialchars($row['res_number'], ENT_QUOTES, 'UTF-8') . "'>";
+                            echo "<input type='checkbox' name='status' value='done' " . ($row['status'] === 'done' ? 'checked' : '') . " onchange='this.form.submit()'>";
+                            echo "</form>";
+                            echo "</td>";
                             echo "</tr>";
-
                         }
                     } else {
-                        echo "<tr><td colspan='5'>No Table Reservations</td></tr>";
+                        echo "<tr><td colspan='9'>No Table Reservations</td></tr>";
                     }
                     $conn->close();
                     ?>
                 </table>
             </div>
-            <!-- <div class="img">
-                <img src="img/parking.jpg" alt="">
-            </div> -->
         </div>
     </div>
 </body>

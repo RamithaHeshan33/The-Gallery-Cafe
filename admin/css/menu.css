@@ -5,6 +5,37 @@ body {
     padding: 0;
 }
 
+table {
+    background: #ffffff;
+    width: 100%;
+    border-collapse: collapse;
+    border: #cacace;
+}
+
+.table-container-1 {
+    width: 400px;
+}
+
+.table-container-2 {
+    width: 100%;
+    margin: 32px;
+}
+
+th, td {
+    border: 0px solid #dddddd;
+    text-align: left;
+    padding: 15px;
+}
+
+tr:nth-child(even) {
+    background-color: #c9c9c9;
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+
 .menu {
     height: 100vh;
     display: flex;
