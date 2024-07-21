@@ -85,7 +85,7 @@ label {
     color: #333;
 }
 
-input[type="text"],textarea, select {
+input[type="text"],textarea, select, input[type="number"], input[type="email"], input[type="password"] {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
@@ -230,6 +230,10 @@ button.batch.view-link:hover {
 
 .empty {
     margin-top: 20px;
+}
+
+.table-container-2 {
+    width: 100%;
 }
 
 @media screen and (max-width: 650px){
