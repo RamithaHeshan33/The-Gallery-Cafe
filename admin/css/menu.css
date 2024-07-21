@@ -192,6 +192,11 @@ button.batch.view-link:hover {
     align-items: center;
 }
 
+.filter-bar {
+    display: flex;
+    gap: 20px;
+}
+
 
 @media screen and (max-width: 650px){
  
@@ -214,5 +219,9 @@ button.batch.view-link:hover {
       display: flex;
       flex-direction: column;
       gap: 10px;
+  }
+
+  .filter-bar {
+    display: inline;
   }
   }
