@@ -33,89 +33,99 @@
     <title>Food Menu</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/reservation.css">
-
     <link rel="stylesheet" href="css/menu.css">
 </head>
 <body class="body">
     
     <div class="menu">
-    <div class="message-container">
-        <?php if ($message == 'submitted'): ?>
-            <div class="alert alert-success" id="alertMessage"><i class="fas fa-check-circle"></i>Food card is Successfully created.</div>
-        <?php elseif ($message == 'err'): ?>
-            <div class="alert alert-danger" id="alertMessage"><i class="fas fa-times-circle"></i>Something went wrong.</div>
-        <?php elseif ($message == 'update'): ?>
-            <div class="alert alert-success" id="alertMessage"><i class="fas fa-times-circle"></i>Food card is updated successfully.</div>
-        <?php elseif ($message == 'delete'): ?>
-            <div class="alert alert-danger" id="alertMessage"><i class="fas fa-times-circle"></i>Food card is deleted successfully.</div>
-        <?php endif; ?>
-    </div>
+        <div class="message-container">
+            <?php if ($message == 'submitted'): ?>
+                <div class="alert alert-success" id="alertMessage"><i class="fas fa-check-circle"></i>Food card is Successfully created.</div>
+            <?php elseif ($message == 'err'): ?>
+                <div class="alert alert-danger" id="alertMessage"><i class="fas fa-times-circle"></i>Something went wrong.</div>
+            <?php elseif ($message == 'update'): ?>
+                <div class="alert alert-success" id="alertMessage"><i class="fas fa-times-circle"></i>Food card is updated successfully.</div>
+            <?php elseif ($message == 'delete'): ?>
+                <div class="alert alert-danger" id="alertMessage"><i class="fas fa-times-circle"></i>Food card is deleted successfully.</div>
+            <?php endif; ?>
+        </div>
         <div class="para">
-        <form action="save_food.php" method="POST" enctype="multipart/form-data">
-            <div class="form-container">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="food_id">Food ID:</label>
-                        <input type="text" id="food_id" name="food_id" required>
+            <form action="save_food.php" method="POST" enctype="multipart/form-data">
+                <div class="form-container">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="food_id">Food ID:</label>
+                            <input type="text" id="food_id" name="food_id" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Food Name:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
                     </div>
-
-                    <div class="form-group">
-                        <label for="name">Food Name:</label>
-                        <input type="text" id="name" name="name" required>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="category">Cuisine Type:</label>
+                            <select id="category" name="category" required>
+                                <option value="">Select Cuisine Type</option>
+                                <option value="Sri Lankan">Sri Lankan</option>
+                                <option value="Japanese">Japanese</option>
+                                <option value="Chinese">Chinese</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Price:</label>
+                            <input type="text" id="price" name="price" required>
+                        </div>
                     </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="category">Cuisine Type:</label>
-                        <select id="category" name="category" required>
-                            <option value="">Select Cuisine Type</option>
-                            <option value="Sri Lankan">Sri Lankan</option>
-                            <option value="Japanese">Japanese</option>
-                            <option value="Chinese">Chinese</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="price">Price:</label>
-                        <input type="text" id="price" name="price" required>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="img">Image:</label>
-                        <input type="file" id="img" name="img" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="cato">Category:</label>
-                        <select id="cato" name="category1" required>
-                            <option value="">Select Category</option>
-                            <option value="Starters">Starters</option>
-                            <option value="Main Courses">Main Courses</option>
-                            <option value="Salads">Salads</option>
-                            <option value="Desserts">Desserts</option>
-                            <option value="Beverage">Beverage</option>
-                        </select>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="img">Image:</label>
+                            <input type="file" id="img" name="img" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cato">Category:</label>
+                            <select id="cato" name="category1" required>
+                                <option value="">Select Category</option>
+                                <option value="Starters">Starters</option>
+                                <option value="Main Courses">Main Courses</option>
+                                <option value="Salads">Salads</option>
+                                <option value="Desserts">Desserts</option>
+                                <option value="Beverage">Beverage</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <br>
-            <button type="submit" class="batch view-link">Add a food card</button>
-        </form>
-
-
+                <br>
+                <button type="submit" class="batch view-link">Add a food card</button>
+            </form>
         </div>
     </div>
 
     <div class="items">
         <div class="food-list-container">
             <h1 class="food-title">All Food Items</h1>
-            <div class="card-list">
+            <div class="filter-bar">
+                <label for="filterCuisine">Filter by Cuisine:</label>
+                <select id="filterCuisine">
+                    <option value="">All</option>
+                    <option value="Sri Lankan">Sri Lankan</option>
+                    <option value="Japanese">Japanese</option>
+                    <option value="Chinese">Chinese</option>
+                </select>
+                <label for="filterCategory">Filter by Category:</label>
+                <select id="filterCategory">
+                    <option value="">All</option>
+                    <option value="Starters">Starters</option>
+                    <option value="Main Courses">Main Courses</option>
+                    <option value="Salads">Salads</option>
+                    <option value="Desserts">Desserts</option>
+                    <option value="Beverage">Beverage</option>
+                </select>
+            </div>
+            <div class="card-list" id="foodCards">
                 <?php if (!empty($foods)): ?>
                     <?php foreach ($foods as $food): ?>
-                        <div class="card">
+                        <div class="card" data-cuisine="<?= htmlspecialchars($food['category']) ?>" data-category="<?= htmlspecialchars($food['category1']) ?>">
                             <input type="hidden" class="food-id" value="<?= htmlspecialchars($food['food_id']) ?>">
                             <div class="card-header">
                                 <p class="food-name"><?= htmlspecialchars($food['name']) ?></p>
@@ -133,7 +143,7 @@
                         </div>
                     <?php endforeach; ?>
                 <?php else: ?>
-                    <p>No food items found.</p>
+                    <p class="empty">No food items.</p>
                 <?php endif; ?>
             </div>
         </div>
@@ -141,46 +151,45 @@
 
     <!-- Update Modal -->
     <div id="updateModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Update Food Item</h2>
-        <form id="updateForm" action="update_food.php" method="POST" enctype="multipart/form-data">
-            <input type="hidden" id="update_food_id" name="food_id">
-            <div class="form-group">
-                <label for="update_name">Food Name:</label>
-                <input type="text" id="update_name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="update_category">Cuisine Type:</label>
-                <select id="update_category" name="category" required>
-                    <option value="Sri Lankan">Sri Lankan</option>
-                    <option value="Japanese">Japanese</option>
-                    <option value="Chinese">Chinese</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="update_price">Price:</label>
-                <input type="text" id="update_price" name="price" required>
-            </div>
-            <div class="form-group">
-                <label for="update_img">Image:</label>
-                <input type="file" id="update_img" name="img">
-            </div>
-            <div class="form-group">
-                <label for="update_cato">Category:</label>
-                <select id="update_cato" name="category1" required>
-                    <option value="Starters">Starters</option>
-                    <option value="Main Courses">Main Courses</option>
-                    <option value="Salads">Salads</option>
-                    <option value="Desserts">Desserts</option>
-                    <option value="Beverage">Beverage</option>
-                </select>
-            </div>
-            <button type="submit" class="batch view-link">Update</button>
-        </form>
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Update Food Item</h2>
+            <form id="updateForm" action="update_food.php" method="POST" enctype="multipart/form-data">
+                <input type="hidden" id="update_food_id" name="food_id">
+                <div class="form-group">
+                    <label for="update_name">Food Name:</label>
+                    <input type="text" id="update_name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="update_category">Cuisine Type:</label>
+                    <select id="update_category" name="category" required>
+                        <option value="Sri Lankan">Sri Lankan</option>
+                        <option value="Japanese">Japanese</option>
+                        <option value="Chinese">Chinese</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="update_price">Price:</label>
+                    <input type="text" id="update_price" name="price" required>
+                </div>
+                <div class="form-group">
+                    <label for="update_img">Image:</label>
+                    <input type="file" id="update_img" name="img">
+                </div>
+                <div class="form-group">
+                    <label for="update_cato">Category:</label>
+                    <select id="update_cato" name="category1" required>
+                        <option value="Starters">Starters</option>
+                        <option value="Main Courses">Main Courses</option>
+                        <option value="Salads">Salads</option>
+                        <option value="Desserts">Desserts</option>
+                        <option value="Beverage">Beverage</option>
+                    </select>
+                </div>
+                <button type="submit" class="batch view-link">Update</button>
+            </form>
+        </div>
     </div>
-</div>
-
 
 <!-- Delete Modal -->
 <div id="deleteModal" class="modal">
@@ -195,12 +204,10 @@
     </div>
 </div>
 
-
-
 </body>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
     // Get the modals
     var updateModal = document.getElementById("updateModal");
     var deleteModal = document.getElementById("deleteModal");
@@ -248,7 +255,7 @@
         if (event.target.classList.contains("btn2")) {
             openUpdateModal(event);
         } else if (event.target.classList.contains("btn3")) {
-            openDeleteModal(event);
+                openDeleteModal(event);
         }
     });
 
@@ -282,11 +289,32 @@
             alertMessage.style.display = 'none';
         }
     }, 10000);
+
+    // Function to filter food items
+    function filterFoods() {
+        var filterCuisine = document.getElementById("filterCuisine").value;
+        var filterCategory = document.getElementById("filterCategory").value;
+
+        var foodCards = document.getElementsByClassName("card");
+
+        for (var i = 0; i < foodCards.length; i++) {
+            var card = foodCards[i];
+            var cuisine = card.getAttribute("data-cuisine");
+            var category = card.getAttribute("data-category");
+
+            if ((filterCuisine === "" || filterCuisine === cuisine) &&
+                (filterCategory === "" || filterCategory === category)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        }
+    }
+
+    // Add event listeners for the filter selects
+    document.getElementById("filterCuisine").addEventListener("change", filterFoods);
+    document.getElementById("filterCategory").addEventListener("change", filterFoods);
 });
-
 </script>
-
-
-
 
 </html>

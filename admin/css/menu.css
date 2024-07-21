@@ -197,6 +197,9 @@ button.batch.view-link:hover {
     gap: 20px;
 }
 
+.empty {
+    margin-top: 20px;
+}
 
 @media screen and (max-width: 650px){
  
