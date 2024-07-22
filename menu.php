@@ -43,7 +43,7 @@
     </script>
 </head>
 <body class="body">
-    <div class="menu">
+    <div class="home">
         <div class="para">
             <h1 class="items-justify">
                 It's not just <br> Food, it's an <br> Experience

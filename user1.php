@@ -46,7 +46,7 @@ require 'connection.php';
 
         <img class="home-pic" src="img/Untitled-1.jpg" alt="Gallery Cafe">
         <div class="para">
-            <h1>The Gallery Cafe</h1>
+            <h2>The Gallery Cafe</h2>
             <p class="items-justify">
                 Welcome to <strong>The Gallery Cafe</strong>, where culinary excellence meets unparalleled hospitality. Nestled in the heart of Kalutara, 
                 our restaurant offers a vibrant dining experience that captures the essence of both local and international flavors. From our

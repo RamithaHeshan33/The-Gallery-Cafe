@@ -16,7 +16,7 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
     
 </head>
-<body>
+<body class="body">
     <div class="banner">
         <img class="banner-pic" src="../img/parking.jpg" alt="Gallery Cafe">
         <div class="para">

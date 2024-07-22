@@ -43,7 +43,7 @@ $conn->close();
                     <img src="img/s.jpg" alt="" class="home-pic">
                 <?php endif; ?>
                 <div class="para">
-                    <h1><?= $promo['title'] ?></h1>
+                    <h2><?= $promo['title'] ?></h2>
                     <p>
                         <?= $promo['description'] ?>
                     </p>

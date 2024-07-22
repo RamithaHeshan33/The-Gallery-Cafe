@@ -48,7 +48,7 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
     </script> -->
 </head>
 <body class="body">
-    <div class="menu">
+    <div class="home">
         <div class="para">
         <?php if ($message == 'payment'): ?>
             <div class="alert alert-success" id="alertMessage"><i class="fas fa-check-circle"></i> Your payment is successful.</div>

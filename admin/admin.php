@@ -43,35 +43,35 @@ $order_count = $row['order_count'];
 
     </script>
 </head>
-<body>
+<body class="body">
     <div class="parking">
         <div class="slot-group">
             
             <div class="slot user">
                 <p>Number of Users</p>
                 <h1 class="card_value"><?php echo $user_count; ?></h1>
-                <input type="button" value="Visit Page" id="reserveTableBtn" class="btn2">
+                
 
             </div>
 
             <div class="slot table">
                 <p>Number of Table Reservations</p>
                 <h1 class="card_value"><?php echo $table_count; ?></h1>
-                <input type="button" value="Visit Page" id="reserveTableBtn" class="btn2">
+                <a href="table-reservation.php"><input type="button" value="Visit Page" id="reserveTableBtn" class="btn2"></a>
 
             </div>
 
             <div class="slot member">
                 <p>Number of Staff Members</p>
                 <h1 class="card_value"><?php echo $staff_count; ?></h1>
-                <input type="button" value="Visit Page" id="reserveTableBtn" class="btn2">
+                <a href="staff.php"><input type="button" value="Visit Page" id="reserveTableBtn" class="btn2"></a>
 
             </div>
 
             <div class="slot food">
                 <p>Number of Food Orders</p>
                 <h1 class="card_value"><?php echo $order_count; ?></h1>
-                <input type="button" value="Visit Page" id="reserveTableBtn" class="btn2">
+                <a href="order.php"><input type="button" value="Visit Page" id="reserveTableBtn" class="btn2"></a>
 
             </div>
 
