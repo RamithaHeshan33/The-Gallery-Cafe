@@ -16,6 +16,8 @@ if(isset($_SESSION['username'])) {
         $name = $row['name'];
         $email = $row['email'];
         $phone = $row['phone'];
+        $nic = $row['nic'];
+        $dob = $row['dob'];
 
         
     } else {

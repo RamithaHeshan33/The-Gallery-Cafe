@@ -46,12 +46,8 @@
                         <span class="form-value"><?php echo isset($username) ? $username : ''; ?></span>
                     </div>
                     <div class = "form-row">
-                        <span class="form-label">Batch No:</span>
-                        <span class="form-value"><?php echo isset($batch_number) ? $batch_number : ''; ?></span>
-                    </div>
-                    <div class = "form-row">
-                        <span class="form-label">Gender:</span>
-                        <span class="form-value"><?php echo isset($gender) ? $gender : ''; ?></span>
+                        <span class="form-label">Phone No:</span>
+                        <span class="form-value"><?php echo isset($phone) ? $phone : ''; ?></span>
                     </div>
                     <div class = "form-row">
                         <span class="form-label">Date Of Birth:</span>
@@ -64,10 +60,6 @@
                     <div class = "form-row">
                         <span class="form-label"> E-mail:</span>
                         <span class="form-value"><?php echo isset($email) ? $email : ''; ?></span>
-                    </div>
-                    <div class = "form-row">
-                        <span class="form-label"> Contact info:</span>
-                        <span class="form-value"><?php echo isset($contact) ? $contact : ''; ?></span>
                     </div>
                 </div>
 
