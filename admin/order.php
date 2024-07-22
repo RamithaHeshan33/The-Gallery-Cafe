@@ -34,7 +34,6 @@ $result = $stmt->get_result();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/reservation.css">
-    <!-- <link rel="stylesheet" href="../css/style.css"> -->
     <link rel="stylesheet" href="css/menu.css">
 </head>
 <body>
@@ -62,6 +61,7 @@ $result = $stmt->get_result();
                             echo "<td data-cell='Status'>";
                             echo "<form method='post' action=''>";
                             echo "<input type='hidden' name='id' value='" . htmlspecialchars($row['id'], ENT_QUOTES, 'UTF-8') . "'>";
+                            echo "<input type='hidden' name='status' value='" . ($row['status'] === 'done' ? '' : 'done') . "'>";
                             echo "<input type='checkbox' name='status' value='done' " . ($row['status'] === 'done' ? 'checked' : '') . " onchange='this.form.submit()'>";
                             echo "</form>";
                             echo "</td>";

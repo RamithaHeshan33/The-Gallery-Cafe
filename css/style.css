@@ -128,14 +128,7 @@ th, td {
 }
 
 /* Menu page */
-.menu {
-  display: flex;
-  background: #f8c705;
-  text-align: justify;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
+
 
 .menu .para {
   padding: 20px;

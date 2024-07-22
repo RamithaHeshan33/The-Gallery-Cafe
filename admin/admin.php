@@ -34,14 +34,14 @@ $order_count = $row['order_count'];
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="../css/style.css">
 
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
         function preventBack() {
             window.history.forward();
         };
         setTimeout("preventBack()", 0);
         window.onunload = function() {null;}
 
-    </script> -->
+    </script>
 </head>
 <body>
     <div class="parking">

@@ -22,9 +22,7 @@ if (isset($_POST['login'])) {
         if ($userType == 'admin') {
             $table = "admin_login_tbl";
             $redirectPath = 'admin/admin.php';
-        }
-        
-        elseif ($userType == 'staff') {
+        } elseif ($userType == 'staff') {
             $table = "staff";
             $redirectPath = 'staff/staff.php';
         } else {
@@ -32,20 +30,29 @@ if (isset($_POST['login'])) {
             exit;
         }
 
-        $sql = "SELECT * FROM `$table` WHERE `username`='$username' AND `password`='$password'";
+        $sql = "SELECT * FROM `$table` WHERE `username`='$username'";
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) > 0) {
-            $row = mysqli_fetch_array($result);
-            $name = $row['name'];
-            $storedUsername = $row['username'];
-            $storedPassword = $row['password'];
-
-            if ($username == $storedUsername && $password == $storedPassword) {
-                $_SESSION['name'] = $name;
-                $_SESSION['username'] = $username;
-                header('location: ' . $redirectPath);
-                exit;
+            $row = mysqli_fetch_assoc($result);
+            if ($userType == 'staff') {
+                if (password_verify($password, $row['password'])) {
+                    $_SESSION['username'] = $username;
+                    header("Location: $redirectPath");
+                    exit();
+                } else {
+                    echo "<script>alert('Invalid Username or Password'); window.location='index.php';</script>";
+                    exit;
+                }
+            } elseif ($userType == 'admin') {
+                if ($password == $row['password']) {
+                    $_SESSION['username'] = $username;
+                    header("Location: $redirectPath");
+                    exit();
+                } else {
+                    echo "<script>alert('Invalid Username or Password'); window.location='index.php';</script>";
+                    exit;
+                }
             }
         } else {
             echo "<script>alert('Invalid Username or Password'); window.location='index.php';</script>";
@@ -56,6 +63,7 @@ if (isset($_POST['login'])) {
 ?>
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,7 +72,6 @@ if (isset($_POST['login'])) {
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
-    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
