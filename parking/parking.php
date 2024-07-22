@@ -24,6 +24,8 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
                 <div class="alert alert-success" id="alertMessage"><i class="fas fa-check-circle"></i>Your reservation is successful.</div>
             <?php elseif ($message == 'err'): ?>
                 <div class="alert alert-danger" id="alertMessage"><i class="fas fa-times-circle"></i>Something went wrong.</div>
+            <?php elseif ($message == 'slot_unavailable'): ?>
+                <div class="alert alert-danger" id="alertMessage"><i class="fas fa-times-circle"></i>Slot unavailable this time.</div>
             <?php endif; ?>
             <h1>Gallery Cafe - Parking Area</h1>
             <p>

@@ -17,7 +17,7 @@
     <div class="home">
         <img src="img/parking1.jpg" alt="" class="home-pic">
         <div class="para">
-            <h1>Parking Area</h1>
+            <h2>Parking Area</h2>
             <p>
                 At The Gallery Café, we understand the importance of convenience for our valued guests. Our restaurant offers a spacious
                  parking area with 20 dedicated parking slots, ensuring a hassle-free experience from the moment you arrive. Whether you're
@@ -65,7 +65,7 @@
     <div class="home">
         <img src="img/service3.jpg" alt="" class="home-pic">
         <div class="para">
-            <h1>Online Food Reservations</h1>
+            <h2>Online Food Reservations</h2>
             <p>
                 Experience the convenience of dining with The Gallery Café from the comfort of your home. Our online food reservation service
                  allows you to pre-order your favorite dishes through our website, ensuring your meal is prepared fresh and ready for you
