@@ -36,7 +36,10 @@
     <link rel="stylesheet" href="css/menu.css">
 </head>
 <body class="body">
-    
+    <video autoplay muted loop id="bgVideo">
+        <source src="/img/staff1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
     <div class="menu">
         <div class="message-container">
             <?php if ($message == 'submitted'): ?>

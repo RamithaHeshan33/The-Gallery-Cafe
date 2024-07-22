@@ -10,7 +10,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Gallery Cafe</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/user.css">
+    <link rel="stylesheet" href="admin/css/menu.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
     <!-- Tailwind CSS (required for Flowbite) -->
@@ -19,12 +20,13 @@
     <link href="https://unpkg.com/flowbite@1.6.5/dist/flowbite.min.css" rel="stylesheet">
 </head>
 <body class="body">
-
-    <div class="home">
+    <video autoplay muted loop id="bgVideo">
+        <source src="/img/intro.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="home-para">
         <button class="login-button" onclick="window.location.href='login.php'">Login</button>
-
-        <img class="home-pic" src="img/Untitled-1.jpg" alt="Gallery Cafe">
-        <div class="para">
+        <!-- <div class="para">
             <h2>The Gallery Cafe</h2>
             <p class="items-justify">
                 Welcome to <strong>The Gallery Cafe</strong>, where culinary excellence meets unparalleled hospitality. Nestled in the heart of Kalutara, 
@@ -39,7 +41,7 @@
                 <a href="https://www.linkedin.com/in/ramithaheshan/" target="_blank"><i class='bx bxl-linkedin'></i></a>
                 <a href="https://www.youtube.com/@RamithaHeshan" target="_blank"><i class='bx bxl-youtube'></i></a>
             </div>
-        </div>
+        </div> -->
     </div>
 
 </body>

@@ -31,6 +31,10 @@
 </head>
 <body>
 <div class="menu">
+    <video autoplay muted loop id="bgVideo">
+        <source src="/img/rest.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
     <div class="message-container">
         <?php if ($message == 'submitted'): ?>
             <div class="alert alert-success" id="alertMessage"><i class="fas fa-check-circle"></i>Promotion card is Successfully created.</div>

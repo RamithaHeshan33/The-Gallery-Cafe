@@ -25,55 +25,61 @@ $result = $stmt->get_result();
     <link rel="stylesheet" href="css/menu.css">
 </head>
 <body>
-    
-    <div class="res-container">
-        <div class="table-container-2">
-            <div class="table">
-                <table>
-                    <tr>
-                        <th>Username</th>
-                        <th>Parking Slot Number</th>
-                        <th>Reserve Date</th>
-                        <th>Reserved Time</th>
-                        <th>Exit Date</th>
-                        <th>Exit Time</th>
-                        <th>Phone Number</th>
-                        <th>Action</th>
-                    </tr>
-                    <?php
-                    if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                            echo "<tr>";
-                            echo "<td data-cell='Username'>" . htmlspecialchars($row['username'], ENT_QUOTES, 'UTF-8') . "</td>";
-                            echo "<td data-cell='Slot Number'>" . htmlspecialchars($row['slot_number'], ENT_QUOTES, 'UTF-8') . "</td>";
-                            echo "<td data-cell='Reserved Date'>" . htmlspecialchars($row['reserve_date'], ENT_QUOTES, 'UTF-8') . "</td>";
-                            echo "<td data-cell='Reserved Time'>" . htmlspecialchars($row['reserve_time'], ENT_QUOTES, 'UTF-8') . "</td>";
-                            echo "<td data-cell='Exit Date'>" . htmlspecialchars($row['exit_date'], ENT_QUOTES, 'UTF-8') . "</td>";
-                            echo "<td data-cell='Exit Time'>" . htmlspecialchars($row['exit_time'], ENT_QUOTES, 'UTF-8') . "</td>";
-                            echo "<td data-cell='Phone'>" . htmlspecialchars($row['phone'], ENT_QUOTES, 'UTF-8') . "</td>";
-                            echo "<td data-cell='Action'>
-                                    <form method='post' action='delete_reservation.php' onsubmit='return confirm(\"Are you sure you want to delete this reservation?\");'>
-                                        <input type='hidden' name='slot_number' value='" . htmlspecialchars($row['slot_number'], ENT_QUOTES, 'UTF-8') . "'>
-                                        <input type='hidden' name='reserve_date' value='" . htmlspecialchars($row['reserve_date'], ENT_QUOTES, 'UTF-8') . "'>
-                                        <input type='hidden' name='reserve_time' value='" . htmlspecialchars($row['reserve_time'], ENT_QUOTES, 'UTF-8') . "'>
-                                        <input type='hidden' name='username' value='" . htmlspecialchars($row['username'], ENT_QUOTES, 'UTF-8') . "'>
-                                        <input type='hidden' name='phone' value='" . htmlspecialchars($row['phone'], ENT_QUOTES, 'UTF-8') . "'>
-                                        <button type='submit' class='btn3'>Delete</button>
-                                    </form>
-                                  </td>";
-                            echo "</tr>";
+    <video autoplay muted loop id="bgVideo">
+        <source src="/img/parking.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="hide">
+        <div class="res-container">
+            <div class="table-container-2">
+                <div class="table">
+                    <table>
+                        <tr>
+                            <th>Username</th>
+                            <th>Parking Slot Number</th>
+                            <th>Reserve Date</th>
+                            <th>Reserved Time</th>
+                            <th>Exit Date</th>
+                            <th>Exit Time</th>
+                            <th>Phone Number</th>
+                            <th>Action</th>
+                        </tr>
+                        <?php
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<tr>";
+                                echo "<td data-cell='Username'>" . htmlspecialchars($row['username'], ENT_QUOTES, 'UTF-8') . "</td>";
+                                echo "<td data-cell='Slot Number'>" . htmlspecialchars($row['slot_number'], ENT_QUOTES, 'UTF-8') . "</td>";
+                                echo "<td data-cell='Reserved Date'>" . htmlspecialchars($row['reserve_date'], ENT_QUOTES, 'UTF-8') . "</td>";
+                                echo "<td data-cell='Reserved Time'>" . htmlspecialchars($row['reserve_time'], ENT_QUOTES, 'UTF-8') . "</td>";
+                                echo "<td data-cell='Exit Date'>" . htmlspecialchars($row['exit_date'], ENT_QUOTES, 'UTF-8') . "</td>";
+                                echo "<td data-cell='Exit Time'>" . htmlspecialchars($row['exit_time'], ENT_QUOTES, 'UTF-8') . "</td>";
+                                echo "<td data-cell='Phone'>" . htmlspecialchars($row['phone'], ENT_QUOTES, 'UTF-8') . "</td>";
+                                echo "<td data-cell='Action'>
+                                        <form method='post' action='delete_reservation.php' onsubmit='return confirm(\"Are you sure you want to delete this reservation?\");'>
+                                            <input type='hidden' name='slot_number' value='" . htmlspecialchars($row['slot_number'], ENT_QUOTES, 'UTF-8') . "'>
+                                            <input type='hidden' name='reserve_date' value='" . htmlspecialchars($row['reserve_date'], ENT_QUOTES, 'UTF-8') . "'>
+                                            <input type='hidden' name='reserve_time' value='" . htmlspecialchars($row['reserve_time'], ENT_QUOTES, 'UTF-8') . "'>
+                                            <input type='hidden' name='username' value='" . htmlspecialchars($row['username'], ENT_QUOTES, 'UTF-8') . "'>
+                                            <input type='hidden' name='phone' value='" . htmlspecialchars($row['phone'], ENT_QUOTES, 'UTF-8') . "'>
+                                            <button type='submit' class='btn3'>Delete</button>
+                                        </form>
+                                    </td>";
+                                echo "</tr>";
+                            }
+                        } else {
+                            echo "<tr><td colspan='8'>No Parking Reservations</td></tr>";
                         }
-                    } else {
-                        echo "<tr><td colspan='8'>No Parking Reservations</td></tr>";
-                    }
-                    $conn->close();
-                    ?>
-                </table>
+                        $conn->close();
+                        ?>
+                    </table>
+                </div>
+                <!-- <div class="img">
+                    <img src="img/parking.jpg" alt="">
+                </div> -->
             </div>
-            <!-- <div class="img">
-                <img src="img/parking.jpg" alt="">
-            </div> -->
         </div>
     </div>
+    
 </body>
 </html>

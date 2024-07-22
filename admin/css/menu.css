@@ -164,6 +164,11 @@ button.batch.view-link:hover {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.hide {
+    height: 100vh;
+    overflow-y: auto;
+}
+
 .card-header {
     padding: 10px;
     background-color: #007bff;
