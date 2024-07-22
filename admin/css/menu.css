@@ -45,6 +45,15 @@ tr:nth-child(odd) {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.orders {
+    height: 100vh;
+    position: relative;
+    display: inline;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 #bgVideo {
     position: absolute;
     top: 0;
@@ -72,6 +81,20 @@ tr:nth-child(odd) {
     border-radius: 8px;
     background-color: #f9f9f9;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.order {
+    width: 100%;
+    max-width: 1000px;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); */
+}
+
+.order h3 {
+    font-size: 2rem;
+    font-weight: 800;
 }
 
 .form-container {

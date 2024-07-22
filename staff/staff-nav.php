@@ -14,7 +14,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <!-- Flowbite CSS -->
     <link href="https://unpkg.com/flowbite@1.6.5/dist/flowbite.min.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="img/restaurant.png">
+    <link rel="icon" type="image/png" href="../img/restaurant.png">
 
 
     <style>
@@ -86,7 +86,7 @@
     <!-- Navbar -->
     <nav class="bg-black border-gray-200 fixed w-full top-0 left-0 z-50">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="admin.php" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <a href="staff.php" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Gallery Cafe</span>
             </a>
             <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">

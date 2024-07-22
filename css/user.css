@@ -41,6 +41,15 @@
     margin-bottom: 20px;
 }
 
+
+
+.message {
+    color: white;
+    font-weight: 800;
+    font-size: 2rem;
+
+    
+}
 @media (max-width: 850px) {
     .home-para {
         display: flex;

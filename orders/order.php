@@ -33,7 +33,9 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="../css/user.css">
+    <link rel="stylesheet" href="../css/reservation.css">
+    <link rel="stylesheet" href="../admin/css/menu.css">
     <link rel="stylesheet" href="../css/menu.css">
     
 
@@ -49,19 +51,24 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
     </script> -->
 </head>
 <body class="body">
-    <div class="home">
-        <div class="para">
-        <?php if ($message == 'payment'): ?>
-            <div class="alert alert-success" id="alertMessage"><i class="fas fa-check-circle"></i> Your payment is successful.</div>
-        <?php endif; ?>
-            <h1 class="items-justify">
-                It's not just <br> Food, it's an <br> Experience
-            </h1>
-            <div class="btn items-center space-x-4 mt-4">
+    <div class="hide">
+        <video autoplay muted loop id="bgVideo">
+            <source src="/img/order.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="menu">
+            <div class="order">
+            <?php if ($message == 'payment'): ?>
+                <div class="alert alert-success" id="alertMessage"><i class="fas fa-check-circle"></i> Your payment is successful.</div>
+            <?php endif; ?>
+                <h3>
+                    Healthy Fresh <br> And Delicious <br> Food for You
+                </h3>
+
             </div>
         </div>
-        <img class="home-pic" src="../img/file (1).png" alt="">
     </div>
+    
 
     <div class="items">
         <div class="food-list-container">
