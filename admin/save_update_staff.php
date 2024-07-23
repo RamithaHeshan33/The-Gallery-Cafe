@@ -4,6 +4,7 @@ require '../connection.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $staff_id = $_POST['staff_id'];
     $username = $_POST['username'];
+    $possition = $_POST['position'];
     $name = $_POST['name'];
     $password = $_POST['password'];
     $age = $_POST['age'];
@@ -14,13 +15,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!empty($password)) {
         // Hash the new password
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $sql = "UPDATE staff SET username = ?, name = ?, password = ?, age = ?, email = ?, phone = ?, address = ? WHERE id = ?";
+        $sql = "UPDATE staff SET username = ?, name = ?, position = ?, password = ?, age = ?, email = ?, phone = ?, address = ? WHERE id = ?";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sssisssi", $username, $name, $hashedPassword, $age, $email, $phone, $address, $staff_id);
+        $stmt->bind_param("ssssisssi", $username, $name, $possition, $hashedPassword, $age, $email, $phone, $address, $staff_id);
     } else {
-        $sql = "UPDATE staff SET username = ?, name = ?, age = ?, email = ?, phone = ?, address = ? WHERE id = ?";
+        $sql = "UPDATE staff SET username = ?, name = ?, position = ?, age = ?, email = ?, phone = ?, address = ? WHERE id = ?";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ssisssi", $username, $name, $age, $email, $phone, $address, $staff_id);
+        $stmt->bind_param("sssisssi", $username, $name, $possition, $age, $email, $phone, $address, $staff_id);
     }
 
     if ($stmt->execute()) {

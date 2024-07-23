@@ -56,9 +56,10 @@
                         <label for="password">Password:</label>
                         <input type="password" id="password" name="password" required>
                     </div>
+
                     <div class="form-group">
-                        <label for="age">Age:</label>
-                        <input type="number" id="age" name="age" required>
+                        <label for="position">Position:</label>
+                        <input type="text" id="position" name="position" required>
                     </div>
                 </div>
                 <div class="form-row">
@@ -72,6 +73,10 @@
                     </div>
                 </div>
                 <div class="form-row">
+                    <div class="form-group">
+                        <label for="age">Age:</label>
+                        <input type="number" id="age" name="age" required>
+                    </div>
                     <div class="form-group">
                         <label for="address">Address:</label>
                         <input type="text" id="address" name="address" required>
@@ -92,6 +97,7 @@
                 <tr>
                     <th>Username</th>
                     <th>Name</th>
+                    <th>Position</th>
                     <th>Age</th>
                     <th>Email</th>
                     <th>Phone</th>
@@ -104,6 +110,7 @@
                         echo "<tr>";
                         echo "<td data-cell='Username'>" . htmlspecialchars($row['username'], ENT_QUOTES, 'UTF-8') . "</td>";
                         echo "<td data-cell='Name'>" . htmlspecialchars($row['name'], ENT_QUOTES, 'UTF-8') . "</td>";
+                        echo "<td data-cell='Position'>" . htmlspecialchars($row['position'], ENT_QUOTES, 'UTF-8') . "</td>";
                         echo "<td data-cell='Age'>" . htmlspecialchars($row['age'], ENT_QUOTES, 'UTF-8') . "</td>";
                         echo "<td data-cell='Email'>" . htmlspecialchars($row['email'], ENT_QUOTES, 'UTF-8') . "</td>";
                         echo "<td data-cell='Phone'>" . htmlspecialchars($row['phone'], ENT_QUOTES, 'UTF-8') . "</td>";

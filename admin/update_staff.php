@@ -47,8 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <small>Leave blank to keep the current password.</small>
                     </div>
                     <div class="form-group">
-                        <label for="age">Age:</label>
-                        <input type="number" id="age" name="age" value="<?php echo htmlspecialchars($staff['age'], ENT_QUOTES, 'UTF-8'); ?>" required>
+                        <label for="position">Position:</label>
+                        <input type="text" id="position" name="position" value="<?php echo htmlspecialchars($staff['position'], ENT_QUOTES, 'UTF-8'); ?>" required>
                     </div>
                 </div>
                 <div class="form-row">
@@ -62,6 +62,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
                 </div>
                 <div class="form-row">
+                    <div class="form-group">
+                        <label for="age">Age:</label>
+                        <input type="number" id="age" name="age" value="<?php echo htmlspecialchars($staff['age'], ENT_QUOTES, 'UTF-8'); ?>" required>
+                    </div>
                     <div class="form-group">
                         <label for="address">Address:</label>
                         <input type="text" id="address" name="address" value="<?php echo htmlspecialchars($staff['address'], ENT_QUOTES, 'UTF-8'); ?>" required>
