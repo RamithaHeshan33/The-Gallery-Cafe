@@ -77,7 +77,7 @@ if (isset($_POST['login'])) {
 <body>
     <div class="login-container">
         <h1>The Gallery Cafe</h1>
-        <img src="img/meal.png" alt="Login Image">
+        <img src="img/title.png" alt="Login Image">
         <form action="" method="POST">
             <div class="mb-3">
                 <input type="text" class="form-control" name="username" placeholder="Username" required>

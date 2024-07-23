@@ -14,7 +14,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <!-- Flowbite CSS -->
     <link href="https://unpkg.com/flowbite@1.6.5/dist/flowbite.min.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="../img/restaurant.png">
+    <link rel="icon" type="image/png" href="../img/title.png">
 
 
     <style>

@@ -9,7 +9,7 @@
     <title>Gallery Cafe</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <link rel="icon" type="image/png" href="../img/restaurant.png">
+    <link rel="icon" type="image/png" href="../img/title.png">
 
 
     <!-- Tailwind CSS (required for Flowbite) -->

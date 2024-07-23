@@ -32,7 +32,7 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
                 <div class="form-content">
                     <img src="../img/restaurant.jpg" alt="Restaurant Image">
                     <h1>Table Reservation</h1>
-                    <a href="table-reservation.php"><input type="button" value="Reserve Now" id="reserveTableBtn" class="btn2"></a>
+                    <a href="table-reservation.php"><input type="button" value="Check" id="reserveTableBtn" class="btn2"></a>
                 </div>
             </div>
 
@@ -41,7 +41,7 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
                     <form method="POST" action="parking-res.php">
                         <img src="../img/garage.jpg" alt="Garage Image">
                         <h1>Parking Reservation</h1>
-                        <a href="park-reservation.php"><input type="button" value="Reserve Now" id="reserveParkingBtn" class="btn2"></a>
+                        <a href="park-reservation.php"><input type="button" value="Check" id="reserveParkingBtn" class="btn2"></a>
                     </form>
                 </div>
             </div>
