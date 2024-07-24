@@ -52,9 +52,9 @@ $conn->close();
         <?php endwhile; ?>
     <?php else: ?>
         <div class="home">
-            <img src="img/service3.jpg" alt="" class="home-pic">
+            <img src="img/empty.jpg" alt="" class="home-pic">
             <div class="para">
-                <h1>No offer available</h1>
+                <h1>No offers available</h1>
                 <p>Currently, there are no promotions available.</p>
             </div>
         </div>

@@ -43,6 +43,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
     <link href="https://unpkg.com/flowbite@1.6.5/dist/flowbite.min.css" rel="stylesheet">
 
+    <link rel="icon" type="image/png" href="img/title.png">
+
+
     <style>
         .form-container {
             display: flex;
@@ -98,11 +101,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="email" name="email" id="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
             </div>
             <div class="full-width">
-                <button type="submit" class="w-full bg-indigo-600 text-white p-2 rounded-lg hover:bg-indigo-700">Register</button>
+                <button type="submit" class="w-full bg-yellow-500 text-white p-2 rounded-lg hover:bg-yellow-800">Register</button>
             </div>
         </div>
     </form>
-        <p class="mt-4 text-center text-sm">Already have an account? <a href="login.php" class="text-indigo-600 hover:text-indigo-800">Login</a></p>
+        <p class="mt-4 text-center text-sm">Already have an account? <a href="login.php" class="text-yellow-600 hover:text-yellow-800">Login</a></p>
     </div>
 </body>
 </html>

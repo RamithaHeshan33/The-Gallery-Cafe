@@ -41,7 +41,7 @@
                     <hr>
                     <br>
                     <div class = "form-row">
-                        <span class="form-label">Student ID:</span>
+                        <span class="form-label">User ID:</span>
                         <span class="form-value"><?php echo isset($username) ? $username : ''; ?></span>
                     </div>
                     <div class = "form-row">

@@ -34,6 +34,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Login - The Gallery Cafe</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
     <link href="https://unpkg.com/flowbite@1.6.5/dist/flowbite.min.css" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="img/title.png">
+
 </head>
 <body class="flex items-center justify-center h-screen bg-gray-100">
     <div class="bg-white p-8 rounded-lg shadow-md w-96">
@@ -50,9 +53,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
                 <input type="password" name="password" id="password" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
             </div>
-            <button type="submit" class="w-full bg-indigo-600 text-white p-2 rounded-lg hover:bg-indigo-700">Login</button>
+            <button type="submit" class="w-full bg-yellow-500 text-white p-2 rounded-lg hover:bg-yellow-800">Login</button>
         </form>
-        <p class="mt-4 text-center text-sm">Don't have an account? <a href="register.php" class="text-indigo-600 hover:text-indigo-800">Register</a></p>
+        <p class="mt-4 text-center text-sm">Don't have an account? <a href="register.php" class="text-yellow-600 hover:text-yellow-800">Register</a></p>
     </div>
 </body>
 </html>

@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="css/menu.css">
     <!-- <link rel="stylesheet" href="../css/reservation.css"> -->
 </head>
-<body>
+<body class="body">
 <div class="menu">
     <video autoplay muted loop id="bgVideo">
         <source src="/img/rest.mp4" type="video/mp4">
@@ -106,7 +106,7 @@
     <?php else: ?>
         <div class="promo-item">
             <div class="promo-img">
-                <img src="img/service3.jpg" alt="No Offers Available" class="home-pic">
+                <img src="../img/empty.jpg" alt="No Offers Available" class="home-pic">
             </div>
             <div class="promo-content">
                 <h1>No offer available</h1>
