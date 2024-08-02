@@ -171,9 +171,11 @@
                 <a href="../user1.php" class="block">Home</a>
                 <a href="../menu.php" class="block">Menu</a>
                 <a href="../promo.php" class="block">Offers</a>
-                <a href="events.php">Events</a>
+                <a href="../events.php">Events</a>
                 <a href="../orders/order.php" class="block">Online Orders</a>
                 <a href="../reservation.php" class="block">Reserve</a>
+                <a href="../contact1.php">Contact Us</a>
+
             </div>
             <div class="dropdown">
                 <img src="../img/profile.png" alt="" class="profile">

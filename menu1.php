@@ -35,14 +35,14 @@
     <link rel="stylesheet" href="../admin/css/menu.css">
 
 
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         function preventBack() {
             window.history.forward();
         };
         setTimeout("preventBack()", 0);
         window.onunload = function() {null;}
 
-    </script>
+    </script> -->
 </head>
 <body class="body">
     <div class="home">

@@ -191,9 +191,9 @@ if (isset($_SESSION['username'])) {
     <!-- Navbar -->
     <nav>
         <div class="container">
-            <a href="staff.php" class="brand">Gallery Cafe</a>
+            <a href="user1.php" class="brand">Gallery Cafe</a>
             <button class="toggle-button" aria-controls="navbar-default" aria-expanded="false">
-                <span class="sr-only">Open main menu</span>
+                <span class="sr-only"></span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
@@ -205,6 +205,7 @@ if (isset($_SESSION['username'])) {
                 <a href="events.php">Events</a>
                 <a href="orders/order.php">Online Orders</a>
                 <a href="reservation.php">Reserve</a>
+                <a href="contact1.php">Contact Us</a>
             </div>
             <div class="dropdown">
                 <img src="img/profile.png" alt="Profile" class="profile">
