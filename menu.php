@@ -31,16 +31,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Menu</title>
 
-    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="../admin/css/menu.css">
 
-    <script type="text/javascript">
-        function preventBack() {
-            window.history.forward();
-        };
-        setTimeout("preventBack()", 0);
-        window.onunload = function() {null;}
-
-    </script>
+    
 </head>
 <body class="body">
     <div class="home">

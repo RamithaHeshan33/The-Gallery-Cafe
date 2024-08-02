@@ -8,14 +8,24 @@ require 'staff-nav.php';
 include_once('../connection.php');
 
 // Update status if form is submitted
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['res_number'])) {
-    $resNumber = $_POST['res_number'];
-    $status = isset($_POST['status']) ? 'done' : '';
-
-    $updateSql = "UPDATE table_reservation SET status = ? WHERE res_number = ?";
-    $updateStmt = $conn->prepare($updateSql);
-    $updateStmt->bind_param('ss', $status, $resNumber);
-    $updateStmt->execute();
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['res_number']) && isset($_POST['action'])) {
+        $resNumber = $_POST['res_number'];
+        $action = $_POST['action'];
+        
+        if ($action == 'update_status') {
+            $status = isset($_POST['status']) ? 'done' : '';
+            $updateSql = "UPDATE table_reservation SET status = ? WHERE res_number = ?";
+            $updateStmt = $conn->prepare($updateSql);
+            $updateStmt->bind_param('ss', $status, $resNumber);
+            $updateStmt->execute();
+        } elseif ($action == 'delete') {
+            $deleteSql = "DELETE FROM table_reservation WHERE res_number = ?";
+            $deleteStmt = $conn->prepare($deleteSql);
+            $deleteStmt->bind_param('s', $resNumber);
+            $deleteStmt->execute();
+        }
+    }
 }
 
 $sql = "SELECT * FROM table_reservation";
@@ -51,10 +61,11 @@ $result = $stmt->get_result();
                             <th>Reservation Number</th>
                             <th>Booked Date</th>
                             <th>Booked Time</th>
-                            <th>Number of Adults</th>
-                            <th>Number of Kids</th>
+                            <th>Num of Adults</th>
+                            <th>Num of Kids</th>
                             <th>Phone Number</th>
                             <th>Status</th>
+                            <th>Action</th>
                         </tr>
                         <?php
                         if ($result->num_rows > 0) {
@@ -71,13 +82,21 @@ $result = $stmt->get_result();
                                 echo "<td data-cell='Status'>";
                                 echo "<form method='post' action=''>";
                                 echo "<input type='hidden' name='res_number' value='" . htmlspecialchars($row['res_number'], ENT_QUOTES, 'UTF-8') . "'>";
+                                echo "<input type='hidden' name='action' value='update_status'>";
                                 echo "<input type='checkbox' name='status' value='done' " . ($row['status'] === 'done' ? 'checked' : '') . " onchange='this.form.submit()'>";
+                                echo "</form>";
+                                echo "</td>";
+                                echo "<td data-cell='Action'>";
+                                echo "<form method='post' action='' onsubmit='return confirm(\"Are you sure you want to delete this reservation?\")'>";
+                                echo "<input type='hidden' name='res_number' value='" . htmlspecialchars($row['res_number'], ENT_QUOTES, 'UTF-8') . "'>";
+                                echo "<input type='hidden' name='action' value='delete'>";
+                                echo "<input type='submit' value='Delete' class='btn3'>";
                                 echo "</form>";
                                 echo "</td>";
                                 echo "</tr>";
                             }
                         } else {
-                            echo "<tr><td colspan='9'>No Table Reservations</td></tr>";
+                            echo "<tr><td colspan='10'>No Table Reservations</td></tr>";
                         }
                         $conn->close();
                         ?>

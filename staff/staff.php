@@ -50,7 +50,7 @@ $order_count = $row['order_count'];
             <div class="slot user">
                 <p>Number of Users</p>
                 <h1 class="card_value"><?php echo $user_count; ?></h1>
-                <!-- <input type="button" value="Visit Page" id="reserveTableBtn" class="btn2"> -->
+                <a href="user_profiles.php"><input type="button" value="Visit Page" id="reserveTableBtn" class="btn2"></a>
 
             </div>
 

@@ -1,9 +1,5 @@
 <?php
     session_start();
-    // Prevent back button after logout
-header("Cache-Control: no-cache, must-revalidate"); // HTTP 1.1
-header("Pragma: no-cache"); // HTTP 1.0
-header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
 
 if(!isset($_SESSION['username'])) {
     header("Location: login.php");
@@ -11,9 +7,9 @@ if(!isset($_SESSION['username'])) {
 }
 
 // Database connection
+require 'nav1.php';
 require 'connection.php';
 
-    require 'nav1.php';
 ?>
 
 <!DOCTYPE html>
@@ -23,23 +19,9 @@ require 'connection.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Gallery Cafe</title>
-    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/user.css">
     <link rel="stylesheet" href="./admin/css/menu.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
-    <!-- Tailwind CSS (required for Flowbite) -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <!-- Flowbite CSS -->
-    <link href="https://unpkg.com/flowbite@1.6.5/dist/flowbite.min.css" rel="stylesheet">
-    <script type="text/javascript">
-        function preventBack() {
-            window.history.forward();
-        };
-        setTimeout("preventBack()", 0);
-        window.onunload = function() {null;}
-
-    </script>
 </head>
 <body class="body">
     <div class="hide">

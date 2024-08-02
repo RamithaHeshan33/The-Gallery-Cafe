@@ -8,12 +8,12 @@ require '../connection.php';
 $sql = "SELECT food_id, name, category, price, img, category1 FROM food";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
-$result = $stmt->get_result(); // Get the result set from the prepared statement
+$result = $stmt->get_result();
 
-$foods = []; // Initialize an empty array to store fetched data
+$foods = [];
 
 while ($food = $result->fetch_assoc()) {
-    $foods[] = $food; // Append each row to $foods array
+    $foods[] = $food;
 }
 
 // Function to convert BLOB to base64

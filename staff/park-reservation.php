@@ -74,9 +74,6 @@ $result = $stmt->get_result();
                         ?>
                     </table>
                 </div>
-                <!-- <div class="img">
-                    <img src="img/parking.jpg" alt="">
-                </div> -->
             </div>
         </div>
     </div>

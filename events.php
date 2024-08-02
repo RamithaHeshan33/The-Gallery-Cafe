@@ -4,7 +4,7 @@ require 'parking/nav1.php';
 require 'connection.php';
 
 // Fetch promo data
-$sql = "SELECT * FROM promo";
+$sql = "SELECT * FROM events";
 $result = $conn->query($sql);
 
 // Close the connection

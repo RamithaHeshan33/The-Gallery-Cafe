@@ -30,27 +30,6 @@
             </p>
         </div>
     </div>
-
-    <div class="about">
-        <div class="para">
-            <p>
-                At The Gallery Cafe, we pride ourselves on our commitment to quality and innovation. Our menu features a diverse selection
-                 of dishes crafted from the freshest local ingredients, prepared with a creative twist to delight every palate. Whether
-                  you’re here for a casual lunch, a romantic dinner, or a special celebration, our team is dedicated to delivering
-                   exceptional service and ensuring every visit is a memorable one.
-
-                   <br> <br>
-
-                Our space is designed to celebrate the beauty of art and culture, with regularly changing exhibitions showcasing the work
-                 of local artists. This dynamic environment enhances the dining experience, making every visit to The Gallery Café a unique
-                  journey.
-            </p>
-        </div>
-        <div class="about-pic">
-            <img src="img/about.png" alt="">
-        </div>
-
-        
-    </div>
+    
 </body>
 </html>

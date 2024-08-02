@@ -7,65 +7,148 @@
     <title>Gallery Cafe</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <!-- Tailwind CSS (required for Flowbite) -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <!-- Flowbite CSS -->
-    <link href="https://unpkg.com/flowbite@1.6.5/dist/flowbite.min.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="img/restaurant.png">
 
     <style>
-        .active-link {
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: black;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 50;
+            border-bottom: 1px solid #333;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: yellow;
+        }
+
+        nav .brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav .toggle-button {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: white;
+        }
+
+        nav .toggle-button svg {
+            fill: white;
+            width: 24px;
+            height: 24px;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        nav .nav-links a.active-link {
             border-bottom: 2px solid yellow;
+        }
+
+        @media (max-width: 768px) {
+            nav .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: black;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                border-top: 1px solid #333;
+            }
+
+            nav .nav-links a {
+                padding: 15px;
+                border-bottom: 1px solid #333;
+            }
+
+            nav .nav-links.show {
+                display: flex;
+            }
+
+            nav .toggle-button {
+                display: inline-block;
+            }
+        }
+
+        @media (max-width: 390px) {
+            nav .nav-links a {
+                padding: 10px;
+            }
         }
     </style>
 </head>
 <body id="home">
     <!-- Navbar -->
-    <nav class="bg-black border-gray-200 fixed w-full top-0 left-0 z-50">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="user.php" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Gallery Cafe</span>
-            </a>
-            <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
-                <span class="sr-only">Open main menu</span>
-                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+    <nav>
+        <div class="container">
+            <a href="user.php" class="brand">Gallery Cafe</a>
+            <button class="toggle-button" aria-controls="navbar-default" aria-expanded="false">
+                <span class="sr-only"></span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
             </button>
-            <div class="hidden w-full md:block md:w-auto bg-black" id="navbar-default">
-                <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-black md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-black dark:bg-gray-800 md:dark:bg-black dark:border-gray-700">
-                    <li>
-                        <a href="user.php" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" id="homeLink">Home</a>
-                    </li>
-                    <li>
-                        <a href="menu1.php" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" id="menuLink">Menu</a>
-                    </li>
-                    <li>
-                        <a href="about.php" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About Us</a>
-                    </li>
-                    <li>
-                        <a href="services.php" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
-                    </li>
-                </ul>
+            <div class="nav-links" id="navbar-default">
+                <a href="user.php" class="home-link">Home</a>
+                <a href="menu1.php">Menu</a>
+                <a href="about.php">About Us</a>
+                <a href="services.php">Services</a>
             </div>
         </div>
     </nav>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('nav ul li a');
+            const navLinks = document.querySelectorAll('nav .nav-links a');
             const currentPath = window.location.pathname.split('/').pop();
 
             navLinks.forEach(link => {
                 if (link.getAttribute('href') === currentPath) {
                     link.classList.add('active-link');
+                } else {
+                    link.classList.remove('active-link');
                 }
-                link.addEventListener('click', function() {
-                    navLinks.forEach(nav => nav.classList.remove('active-link'));
-                    link.classList.add('active-link');
-                });
+            });
+
+            const toggleButton = document.querySelector('.toggle-button');
+            const navLinksContainer = document.querySelector('.nav-links');
+
+            toggleButton.addEventListener('click', () => {
+                navLinksContainer.classList.toggle('show');
             });
         });
     </script>
-    <script src="https://unpkg.com/flowbite@1.6.5/dist/flowbite.js"></script>
 </body>
 </html>

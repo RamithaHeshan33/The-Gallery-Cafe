@@ -1,35 +1,31 @@
 <?php
-// Database configuration
+
 require 'connection.php';
 
-if(isset($_SESSION['username'])) {
-    // Sanitize the username to prevent SQL injection
+if (isset($_SESSION['username'])) {
     $username = mysqli_real_escape_string($conn, $_SESSION['username']);
     
-    // Prepare and execute the SQL query to fetch user's name
-    $sql = "SELECT * FROM users WHERE username = '$username'";
-    $result = mysqli_query($conn, $sql);
+    // Prepare and execute the SQL query to fetch user's details
+    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
     
     // Check if query executed successfully and user exists
-    if($result && mysqli_num_rows($result) == 1) {
-        $row = mysqli_fetch_assoc($result);
+    if ($result && $result->num_rows === 1) {
+        $row = $result->fetch_assoc();
         $name = $row['name'];
         $email = $row['email'];
         $phone = $row['phone'];
         $nic = $row['nic'];
         $dob = $row['dob'];
-
-        
     } else {
-        // Redirect to login page if user does not exist
         header("Location: login.php");
         exit();
     }
 } else {
-    // Redirect to login page if user is not logged in
     header("Location: login.php");
     exit();
-
 }
 ?>
 
@@ -40,27 +36,74 @@ if(isset($_SESSION['username'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery Cafe</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-
-    <!-- Tailwind CSS (required for Flowbite) -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <!-- Flowbite CSS -->
-    <link href="https://unpkg.com/flowbite@1.6.5/dist/flowbite.min.css" rel="stylesheet">
-    
-    <link rel="icon" type="image/png" href="img/title.png">
+    <link rel="icon" type="image/png" href="../img/title.png">
 
     <style>
-        .active-link {
-            border-bottom: 2px solid yellow;
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
         }
 
-        .profile {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
+        /* Navbar */
+        nav {
+            background-color: black;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 50;
+            border-bottom: 1px solid #333;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: yellow;
+        }
+
+        nav .brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav .toggle-button {
+            display: none;
+            background: none;
+            border: none;
             cursor: pointer;
-            margin-right: 10px;
+            color: white;
+        }
+
+        nav .toggle-button svg {
+            fill: white;
+            width: 24px;
+            height: 24px;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        nav .nav-links a.active-link {
+            border-bottom: 2px solid yellow;
         }
 
         .dropdown {
@@ -96,7 +139,39 @@ if(isset($_SESSION['username'])) {
             display: block;
         }
 
-        
+        .profile {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            nav .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: black;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                border-top: 1px solid #333;
+            }
+
+            nav .nav-links a {
+                padding: 15px;
+                border-bottom: 1px solid #333;
+            }
+
+            nav .nav-links.show {
+                display: flex;
+            }
+
+            nav .toggle-button {
+                display: inline-block;
+            }
+        }
 
         @media (max-width: 390px) {
             .dropdown-content {
@@ -110,35 +185,29 @@ if(isset($_SESSION['username'])) {
                 height: 25px;
             }
         }
-
-        
-
     </style>
 </head>
 <body id="home">
     <!-- Navbar -->
-    <nav class="bg-black border-gray-200 fixed w-full top-0 left-0 z-50">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="user1.php" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Gallery Cafe</span>
-            </a>
-            <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+    <nav>
+        <div class="container">
+            <a href="staff.php" class="brand">Gallery Cafe</a>
+            <button class="toggle-button" aria-controls="navbar-default" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
-                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
             </button>
-            <div class="hidden w-full md:block md:w-auto bg-black" id="navbar-default">
-                <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-black md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-black dark:bg-gray-800 md:dark:bg-black dark:border-gray-700">
-                    <li><a href="user1.php" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Home</a></li>
-                    <li><a href="menu.php" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Menu</a></li>
-                    <li><a href="promo.php" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Promotions & Offers</a></li>
-                    <li><a href="orders/order.php" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Online Orders</a></li>
-                    <li><a href="reservation.php" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-yellow-300 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Reserve</a></li>
-                </ul>
+            <div class="nav-links" id="navbar-default">
+                <a href="user1.php">Home</a>
+                <a href="menu.php">Menu</a>
+                <a href="promo.php">Offers</a>
+                <a href="events.php">Events</a>
+                <a href="orders/order.php">Online Orders</a>
+                <a href="reservation.php">Reserve</a>
             </div>
             <div class="dropdown">
-                <img src="img/profile.png" alt="" class="profile">
+                <img src="img/profile.png" alt="Profile" class="profile">
                 <div class="dropdown-content">
                     <a href="profile.php">Profile</a>
                     <a href="park-reservation.php">Parking Reservations</a>
@@ -149,25 +218,28 @@ if(isset($_SESSION['username'])) {
         </div>
     </nav>
 
-</body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('nav .nav-links a');
+            const currentPath = window.location.pathname.split('/').pop();
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const navLinks = document.querySelectorAll('nav ul li a');
-        const currentPath = window.location.pathname.split('/').pop();
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPath) {
+                    link.classList.add('active-link');
+                }
+                link.addEventListener('click', function() {
+                    navLinks.forEach(nav => nav.classList.remove('active-link'));
+                    link.classList.add('active-link');
+                });
+            });
 
-        navLinks.forEach(link => {
-            if (link.getAttribute('href') === currentPath) {
-                link.classList.add('active-link');
-            }
-            link.addEventListener('click', function() {
-                navLinks.forEach(nav => nav.classList.remove('active-link'));
-                link.classList.add('active-link');
+            const toggleButton = document.querySelector('.toggle-button');
+            const navLinksContainer = document.querySelector('.nav-links');
+
+            toggleButton.addEventListener('click', () => {
+                navLinksContainer.classList.toggle('show');
             });
         });
-    });
-</script>
-
-<script src="https://unpkg.com/flowbite@1.6.5/dist/flowbite.js"></script>
-
+    </script>
+</body>
 </html>

@@ -71,7 +71,7 @@
                 </div>
             </div>
             <br>
-            <button type="submit" class="batch view-link">Add a food card</button>
+            <button type="submit" class="batch view-link">Add Offer</button>
         </form>
     </div>
 </div>
