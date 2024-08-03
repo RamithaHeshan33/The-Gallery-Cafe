@@ -19,13 +19,15 @@
 
         <div class="contact-form">
             <h1>Contact Us</h1>
-            <form action="">
-                <input type="text" placeholder="Name" class="contact-form-txt">
-                <input type="email" placeholder="Email" class="contact-form-txt">
-                <textarea name="" id="" cols="30" rows="10" placeholder="Message" class="contact-form-txtarea"></textarea>
-                <input type="submit" name="Submit" class="contact-form-btn">
+            <form action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="ae11ec17-6145-472d-87ba-bfd9ba032019">
+                <input type="text" name="name" placeholder="Name" class="contact-form-txt" required>
+                <input type="email" name="email" placeholder="Email" class="contact-form-txt" required>
+                <textarea name="message" cols="30" rows="10" placeholder="Message" class="contact-form-txtarea" required></textarea>
+                <input type="submit" class="contact-form-btn">
             </form>
         </div>
+
     </div>
 </body>
 </html>

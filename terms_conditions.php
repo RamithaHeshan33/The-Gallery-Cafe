@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms and Conditions - The Gallery Café</title>
+    <title>The Gallery Cafe</title>
+    <link rel="icon" type="image/png" href="img/title.png">
     <style>
         body, html {
             margin: 0;

@@ -142,7 +142,7 @@ input[type="text"]:focus, select:focus {
 button.batch.view-link {
     width: 100%;
     padding: 10px;
-    background-color: #007bff;
+    background-color: #dcad03;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -151,7 +151,8 @@ button.batch.view-link {
 }
 
 button.batch.view-link:hover {
-    background-color: #0056b3;
+    background-color: #af8903;
+    transition: 1s;
 }
 
 .items {
@@ -194,7 +195,7 @@ button.batch.view-link:hover {
 
 .card-header {
     padding: 10px;
-    background-color: #007bff;
+    background-color: #ffc800;
     color: #fff;
     text-align: center;
     font-size: 18px;
