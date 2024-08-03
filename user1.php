@@ -34,7 +34,7 @@ require 'connection.php';
             <div class="para1">
                 <h2>The Gallery Cafe</h2>
                 <p class="items-justify">
-                    Welcome to <strong>The Gallery Cafe</strong>, where culinary excellence meets unparalleled hospitality. Nestled in the heart of Kalutara, 
+                    Welcome to <strong>The Gallery Cafe</strong>, where culinary excellence meets unparalleled hospitality. Nestled in the heart of Colombo, 
                     our restaurant offers a vibrant dining experience that captures the essence of both local and international flavors. From our
                     meticulously crafted dishes to our warm, inviting atmosphere, every detail is designed to delight your senses. Whether you're
                     joining us for a casual lunch, an intimate dinner, or a special celebration, our dedicated team is committed to making your 

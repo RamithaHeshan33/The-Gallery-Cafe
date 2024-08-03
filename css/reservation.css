@@ -79,7 +79,7 @@ body {
 .form-content form input[type="submit"] {
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #af8903;
     color: white;
     border: none;
     border-radius: 5px;
@@ -88,7 +88,7 @@ body {
 }
 
 .form-content form input[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #dcad03;
 }
 
 .modal {
@@ -144,14 +144,14 @@ body {
 }
 
 .modal form input[type="submit"] {
-    background-color: #007bff;
+    background-color: #af8903;
     color: white;
     border: none;
     cursor: pointer;
 }
 
 .modal form input[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #dcad03;
 }
 
 .btn2 {

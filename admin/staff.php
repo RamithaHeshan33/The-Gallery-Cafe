@@ -29,7 +29,7 @@
     </video>
     <div class="message-container">
         <?php if ($message == 'submitted'): ?>
-            <div class="alert alert-success" id="alertMessage"><i class="fas fa-check-circle"></i>Staff member is successfully created.</div>
+            <div class="alert alert-success" id="alertMessage"><i class="fas fa-check-circle"></i>Staff member is successfully added.</div>
         <?php elseif ($message == 'err'): ?>
             <div class="alert alert-danger" id="alertMessage"><i class="fas fa-times-circle"></i>Something went wrong.</div>
         <?php elseif ($message == 'update'): ?>

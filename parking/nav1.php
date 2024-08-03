@@ -15,7 +15,7 @@
     <!-- Navbar -->
     <nav>
         <div class="container">
-            <a href="staff.php" class="brand">Gallery Cafe</a>
+            <a href="../user1.php" class="brand">Gallery Cafe</a>
             <button class="toggle-button" aria-controls="navbar-default" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">

@@ -201,8 +201,11 @@
         <h2>Are you sure you want to delete this food item?</h2>
         <form id="deleteForm" action="delete_food.php" method="POST">
             <input type="hidden" id="delete_food_id" name="food">
-            <button type="submit" class="batch view-link">Delete</button>
-            <button type="button" class="batch view-link cancel-btn">Cancel</button>
+            <div class="btns">
+                <button type="submit" class="btn2">Delete</button>
+                <button type="button" class="btn3 cancel">Cancel</button>
+            </div>
+            
         </form>
     </div>
 </div>
@@ -258,7 +261,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (event.target.classList.contains("btn2")) {
             openUpdateModal(event);
         } else if (event.target.classList.contains("btn3")) {
-                openDeleteModal(event);
+            openDeleteModal(event);
         }
     });
 
@@ -272,7 +275,7 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     // When the user clicks on Cancel button, close the delete modal
-    document.querySelector(".cancel-btn").onclick = function() {
+    document.querySelector(".cancel").onclick = function() {
         deleteModal.style.display = "none";
     };
 

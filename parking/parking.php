@@ -4,6 +4,39 @@ include_once 'nav1.php';
 $message = isset($_GET['message']) ? $_GET['message'] : '';
 ?>
 
+<?php
+// Database configuration
+require '../connection.php';
+
+if(isset($_SESSION['username'])) {
+    // Sanitize the username to prevent SQL injection
+    $username = mysqli_real_escape_string($conn, $_SESSION['username']);
+    
+    // Prepare and execute the SQL query to fetch user's name
+    $sql = "SELECT * FROM users WHERE username = '$username'";
+    $result = mysqli_query($conn, $sql);
+    
+    // Check if query executed successfully and user exists
+    if($result && mysqli_num_rows($result) == 1) {
+        $row = mysqli_fetch_assoc($result);
+        $name = $row['name'];
+        $email = $row['email'];
+        $phone = $row['phone'];
+
+        
+    } else {
+        // Redirect to login page if user does not exist
+        header("Location: login.php");
+        exit();
+    }
+} else {
+    // Redirect to login page if user is not logged in
+    header("Location: login.php");
+    exit();
+
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

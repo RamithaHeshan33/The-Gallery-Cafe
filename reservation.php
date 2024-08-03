@@ -69,7 +69,7 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
                 <input type="time" name="booking_time" placeholder="Booking Time" required>
                 <input type="number" name="adults" placeholder="Number of Adults" required>
                 <input type="number" name="kids" placeholder="Number of Kids" required>
-                <input type="submit" value="Reserve Table">
+                <input type="submit" value="Reserve Table" class="batch">
             </form>
         </div>
     </div>
