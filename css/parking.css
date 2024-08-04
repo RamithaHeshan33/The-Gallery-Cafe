@@ -12,13 +12,13 @@ body {
     background: #f8c705;
     text-align: justify;
     padding: 20px;
-    height: 100vh;
+    height: 130vh;
 }
 
 .banner-pic {
     max-width: 50%;
     height: auto;
-    margin-right: 20px;
+    margin: 20px;
     border-radius: 20px;
 }
 
@@ -64,18 +64,16 @@ body {
 }
 
 .slot {
-    margin-top: 20px;
-    margin-left: 50px;
-    margin-bottom: 20px;
+    margin: 20px;
     padding: 20px;
     background-color: #ffffff;
     border: 1px solid #ddd;
     box-shadow: 0 0 10px rgba(37, 39, 59, 0.3);
     width: 250px;
     display: flex;
-    justify-content: center;  /* Centers content horizontally */
-    align-items: center;      /* Centers content vertically */
-    flex-direction: column;   /* Ensures content is stacked vertically */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 
@@ -184,7 +182,8 @@ body {
 @media (max-width: 768px) {
     .banner {
         flex-direction: column;
-        text-align: center;
+        text-align: justify;
+        
     }
 
     .banner-pic {
