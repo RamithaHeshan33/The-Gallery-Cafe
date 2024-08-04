@@ -41,7 +41,7 @@ require 'connection.php';
                     visit unforgettable. Indulge in our diverse menu, savor our expertly paired wines, and immerse yourself in an ambiance that
                     feels like home. Welcome to a place where every meal is a celebration, and every guest is family.
                 </p>
-                <div class="social items-center space-x-4 mt-4">
+                <div class="social">
                     <a href="https://github.com/RamithaHeshan33" target="_blank"><i class='bx bxl-github github'></i></a>
                     <a href="https://www.linkedin.com/in/ramithaheshan/" target="_blank"><i class='bx bxl-linkedin linkedin'></i></a>
                     <a href="https://www.youtube.com/@RamithaHeshan" target="_blank"><i class='bx bxl-youtube youtube'></i></a>

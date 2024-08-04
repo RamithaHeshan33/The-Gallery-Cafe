@@ -27,6 +27,16 @@
                 <textarea name="message" cols="30" rows="10" placeholder="Message" class="contact-form-txtarea" required></textarea>
                 <input type="submit" class="contact-form-btn">
             </form>
+            <br>
+            <div class="social">
+                <a href="https://github.com/RamithaHeshan33" target="_blank"><i class='bx bxl-github github'></i></a>
+                <a href="https://www.linkedin.com/in/ramithaheshan/" target="_blank"><i class='bx bxl-linkedin linkedin'></i></a>
+                <a href="https://www.youtube.com/@RamithaHeshan" target="_blank"><i class='bx bxl-youtube youtube'></i></a>
+            </div>
+
+            <div class="para">
+                <p>Contact - 0778121761</p>
+            </div>
         </div>
     </div>
 </body>
