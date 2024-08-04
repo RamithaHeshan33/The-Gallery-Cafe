@@ -40,7 +40,7 @@ $conn->close();
     <link rel="stylesheet" href="../admin/css/menu.css">
 </head>
 <body>
-<div class="container">
+<div class="container1">
     <div class="side-container">
         <div class="profilepic">
             <label for="profile-image-input">

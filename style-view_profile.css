@@ -12,11 +12,11 @@ body{
     
 }
 /* Default styles for larger screens */
-.container {
+.container1 {
     margin-top: 300px;
     width: 80%;
     margin: 0 auto;
-    display: flex; /* by default aligning is row like */
+    display: flex;
     justify-content: space-around;
 }
 .form-row{
@@ -123,7 +123,7 @@ body{
     order: 2;
     display: flex;
     flex-direction: column;
-    margin-right: 10px;    
+    margin-right: 10px;
     margin-left: 50px;
 }
 .uni-pic-container{
@@ -131,7 +131,7 @@ body{
     flex-direction: column;
     margin-top: 30px;
     margin-left: 3rem;
-    
+
 }
 .box img{
     width: 150px;
@@ -172,7 +172,7 @@ body{
     cursor: pointer;
 }
 
-/* Mobile view adjustments */
+/* responsive section */
 @media (max-width: 875px) {
     .form-value{
         float: left;
@@ -184,7 +184,7 @@ body{
         padding: 0 10px;
         display: flex;
         flex-direction: column;
-        align-items: center; /* Center all items in the container */
+        align-items: center;
     }
     .side-container{
         order: 1;
@@ -205,22 +205,21 @@ body{
         height: 100px;
     }
     .profilepic {
-        transform: scale(1.0); /* Reset the scale for mobile view */
+        transform: scale(1.0);
         margin-top: 80px;
-        margin: 0 auto; /* Center align on mobile view */
-        width: 150px; /* Example width for mobile view */
-        height: 150px; /* Example height for mobile view */
-        display: flex; /* Use flexbox to center content */
-        justify-content: center; /* Center horizontally */
-        align-items: center; /* Center vertically */
-        flex-direction: column; /* Stack children vertically */
-       
+        margin: 0 auto;
+        width: 150px;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
         
     }
 
     .profilepic img {
         width: 100%;
-        height: auto; /* Maintain aspect ratio */
+        height: auto;
     }
 
     .profileTop {
