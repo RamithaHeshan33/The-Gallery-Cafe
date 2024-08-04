@@ -12,7 +12,7 @@ body {
     background: #f8c705;
     text-align: justify;
     padding: 20px;
-    height: 130vh;
+    height: 100vh;
 }
 
 .banner-pic {
@@ -181,6 +181,7 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
     .banner {
+        height: 130vh;
         flex-direction: column;
         text-align: justify;
         
