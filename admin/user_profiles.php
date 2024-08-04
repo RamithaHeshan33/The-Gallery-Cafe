@@ -7,7 +7,7 @@ require 'admin-nav.php';
 // Include the database connection
 include_once('../connection.php');
 
-$sql = "SELECT id, username, name, email, phone, dob, nic FROM users"; // Updated query
+$sql = "SELECT id, username, name, email, phone, dob, nic FROM users";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -19,7 +19,6 @@ $result = $stmt->get_result();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Reserved Books</title>
     <link rel="stylesheet" href="../css/reservation.css">
     <link rel="stylesheet" href="../admin/css/menu.css">
 </head>

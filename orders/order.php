@@ -104,7 +104,7 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
                                         <input type="hidden" name="food_name" value="<?= htmlspecialchars($food['name']) ?>">
                                         <input type="hidden" name="food_price" value="<?= htmlspecialchars($food['price']) ?>">
                                         <input type="submit" value="Add" class="btn2">
-                                        <input type="button" value="Rate" class="btn2">
+                                        <a href="../rate1/app.py"><input type="button" value="Rate" class="btn2"></a>
                                     </form>
                                 </div>
                             </div>
