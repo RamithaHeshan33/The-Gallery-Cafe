@@ -7,9 +7,10 @@
     <title>Gallery Cafe</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="admin/css/nav.css">
+    <link rel="icon" type="image/png" href="../img/title.png">
+
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <link rel="icon" type="image/png" href="img/restaurant.png">
 
 </head>
 <body id="home">

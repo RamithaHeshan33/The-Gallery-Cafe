@@ -22,6 +22,15 @@ require 'connection.php';
     <link rel="stylesheet" href="./css/user.css">
     <link rel="stylesheet" href="./admin/css/menu.css">
 
+    <!-- stoping the re coming after the logout -->
+    <script type="text/javascript">
+        function preventBack() {
+            window.history.forward();
+        };
+        setTimeout("preventBack()",0);
+        window.onunload = function() {null;}
+    </script>
+
 </head>
 <body class="body">
     <div class="hide">

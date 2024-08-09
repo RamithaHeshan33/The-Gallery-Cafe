@@ -166,16 +166,55 @@ body {
 .modal form input[type="submit"] {
     margin-top: 20px;
     padding: 10px;
-    background-color: #4CAF50;
+    background-color: #dcad03;
     color: white;
     border: none;
     cursor: pointer;
 }
 
 .modal form input[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: #af8903;
 }
 
+
+
+table {
+    background: #ffffff;
+    width: 100%;
+    border-collapse: collapse;
+    border: #cacace;
+}
+
+.table-container-1 {
+    width: 400px;
+}
+
+.table-container-3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 32px auto;
+}
+
+.table-container-3 .table {
+    width: 100%;
+    max-width: 800px;
+}
+
+th, td {
+    border: 0px solid #dddddd;
+    text-align: left;
+    padding: 15px;
+}
+
+tr:nth-child(even) {
+    background-color: #c9c9c9;
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
 
 
 /* Responsive Design */

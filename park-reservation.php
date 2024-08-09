@@ -61,7 +61,7 @@ $result = $stmt->get_result();
 
                             }
                         } else {
-                            echo "<tr><td colspan='5'>No Parking Reservations</td></tr>";
+                            echo "<tr><td colspan='7'>No Parking Reservations</td></tr>";
                         }
                         $conn->close();
                         ?>

@@ -85,11 +85,11 @@ if (isset($_GET['session_id'])) {
             'payment_method_types' => ['card'],
             'line_items' => [[
                 'price_data' => [
-                    'currency' => 'usd',
+                    'currency' => 'lkr',
                     'product_data' => [
                         'name' => 'Parking Reservation',
                     ],
-                    'unit_amount' => 1000, // Amount in cents
+                    'unit_amount' => 100000, // Amount in cents
                 ],
                 'quantity' => 1,
             ]],

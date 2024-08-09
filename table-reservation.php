@@ -28,10 +28,6 @@ $result = $stmt->get_result();
 
 </head>
 <body>
-    <!-- <video autoplay muted loop id="bgVideo">
-        <source src="/img/table.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video> -->
     <div class="hide">
         <div class="res-container">
             <div class="table-container-2">
@@ -65,7 +61,7 @@ $result = $stmt->get_result();
 
                             }
                         } else {
-                            echo "<tr><td colspan='5'>No Table Reservations</td></tr>";
+                            echo "<tr><td colspan='9'>No Table Reservations</td></tr>";
                         }
                         $conn->close();
                         ?>

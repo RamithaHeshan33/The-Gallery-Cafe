@@ -36,9 +36,10 @@
         </div>
     </div>
 
-    <div class="about">
+    <div class="home">
+        <img src="img/restaurant.jpg" alt="" class="home-pic">
         <div class="para">
-            <h1>Table Reservation</h1>
+            <h2>Table Reservation</h2>
             <p>
                 At The Gallery Café, we believe that planning your dining experience should be as enjoyable as the meal itself. To ensure you
                  have the perfect spot for your visit, we offer an easy and convenient table reservation system through our website. Whether
@@ -46,20 +47,16 @@
                    select your preferred date, time, and table with just a few clicks. This way, you can focus on enjoying your time with us,
                     knowing your table is ready when you arrive.
 
-                   <br> <br>
+                <br> <br>
 
                 Our reservation system is designed to accommodate your needs and preferences, providing real-time availability and instant
                  confirmation. You can also specify any special requests or dietary requirements during the booking process, ensuring a
                   personalized and delightful dining experience. 
             </p>
-
             <div class="btn">
                 <a href="reservation.php" class="btn2">Reserve</a>
             </div>
         </div>
-            <img src="img/restaurant.jpg" alt="">
-        
-        
     </div>
 
     <div class="home">

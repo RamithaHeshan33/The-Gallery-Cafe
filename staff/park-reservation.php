@@ -7,7 +7,9 @@ require 'staff-nav.php';
 // Include the database connection
 include_once('../connection.php');
 
-$sql = "SELECT * FROM parking_reservation";
+// Fetch data from the parking_reservation table
+$sql = "SELECT pr.*, sa.availability FROM parking_reservation pr
+        JOIN slot_available sa ON pr.slot_number = sa.slot_number";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -23,6 +25,7 @@ $result = $stmt->get_result();
     <title>Manage Reserved Books</title>
     <link rel="stylesheet" href="../css/reservation.css">
     <link rel="stylesheet" href="../admin/css/menu.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 <video autoplay muted loop id="bgVideo">
@@ -42,6 +45,7 @@ $result = $stmt->get_result();
                             <th>Exit Date</th>
                             <th>Exit Time</th>
                             <th>Phone Number</th>
+                            <th>Confirmation</th>
                             <th>Action</th>
                         </tr>
                         <?php
@@ -55,8 +59,12 @@ $result = $stmt->get_result();
                                 echo "<td data-cell='Exit Date'>" . htmlspecialchars($row['exit_date'], ENT_QUOTES, 'UTF-8') . "</td>";
                                 echo "<td data-cell='Exit Time'>" . htmlspecialchars($row['exit_time'], ENT_QUOTES, 'UTF-8') . "</td>";
                                 echo "<td data-cell='Phone'>" . htmlspecialchars($row['phone'], ENT_QUOTES, 'UTF-8') . "</td>";
+                                $checked = $row['availability'] == 'Unavailable' ? 'checked' : '';
+                                echo "<td data-cell='Confirmation'>
+                                        <input type='checkbox' class='availability-checkbox' data-slot='" . htmlspecialchars($row['slot_number'], ENT_QUOTES, 'UTF-8') . "' $checked>
+                                      </td>";
                                 echo "<td data-cell='Action'>
-                                        <form method='post' action='delete_reservation.php' onsubmit='return confirm(\"Are you sure you want to delete this reservation?\");'>
+                                        <form method='post' action='../admin/delete_reservation.php' onsubmit='return confirm(\"Are you sure you want to delete this reservation?\");'>
                                             <input type='hidden' name='slot_number' value='" . htmlspecialchars($row['slot_number'], ENT_QUOTES, 'UTF-8') . "'>
                                             <input type='hidden' name='reserve_date' value='" . htmlspecialchars($row['reserve_date'], ENT_QUOTES, 'UTF-8') . "'>
                                             <input type='hidden' name='reserve_time' value='" . htmlspecialchars($row['reserve_time'], ENT_QUOTES, 'UTF-8') . "'>
@@ -68,7 +76,7 @@ $result = $stmt->get_result();
                                 echo "</tr>";
                             }
                         } else {
-                            echo "<tr><td colspan='8'>No Parking Reservations</td></tr>";
+                            echo "<tr><td colspan='9'>No Parking Reservations</td></tr>";
                         }
                         $conn->close();
                         ?>
@@ -78,5 +86,25 @@ $result = $stmt->get_result();
         </div>
     </div>
     
+    <script>
+        $(document).ready(function() {
+            $('.availability-checkbox').change(function() {
+                var slotNumber = $(this).data('slot');
+                var availability = $(this).is(':checked') ? 'Unavailable' : 'Available';
+
+                $.ajax({
+                    url: '../admin/update_availability.php',
+                    method: 'POST',
+                    data: {
+                        slot_number: slotNumber,
+                        availability: availability
+                    },
+                    success: function(response) {
+                        alert(response);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

@@ -35,6 +35,11 @@ if(isset($_SESSION['username'])) {
     exit();
 
 }
+
+$sql = "SELECT * FROM slot_available";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$result = $stmt->get_result();
 ?>
 
 <!DOCTYPE html>
@@ -77,6 +82,30 @@ if(isset($_SESSION['username'])) {
     </div>
 
     <div class="parking">
+        <div class="table-container-3">
+            <div class="table">
+                <table>
+                    <tr>
+                        <th>Slot Number</th>
+                        <th>Availability</th>
+                        
+                    </tr>
+                    <?php
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr>";
+                            echo "<td data-cell='Slot Number'>" . htmlspecialchars($row['slot_number'], ENT_QUOTES, 'UTF-8') . "</td>";
+                            echo "<td data-cell='Availability'>" . htmlspecialchars($row['availability'], ENT_QUOTES, 'UTF-8') . "</td>";
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='8'>No Parking Reservations</td></tr>";
+                    }
+                    $conn->close();
+                    ?>
+                </table>
+            </div>
+        </div>
         <div class="slot-group">
             <?php for ($i = 1; $i <= 20; $i++): ?>
                 <div class="slot">

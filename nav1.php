@@ -71,7 +71,8 @@ if (isset($_SESSION['username'])) {
                     <a href="profile.php">Profile</a>
                     <a href="park-reservation.php">Parking Reservations</a>
                     <a href="Table-reservation.php">Table Reservations</a>
-                    <a href="user.php">Logout</a>
+                    <a href="../orderdetails.php">Order Details</a>
+
                 </div>
             </div>
         </div>
